@@ -11,8 +11,7 @@
 
 <div class="row">
 	<div class="col-md-6">
-		{!! Form::label('state','Estado',array('class'=>'control-label')) !!}
-		{!! Form::select('state', $customersForSelect,null,['class'=>'form-control']) !!}
+	
 	</div>
 	<div class="col-md-6">
 		{!! Form::label('special_customer','Cliente especial',['class'=>'control-label']) !!}

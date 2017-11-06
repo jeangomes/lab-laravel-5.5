@@ -30,11 +30,11 @@ class CustomersController extends Controller {
     public function create() {
         $customer = new \stdClass();
         $customer->special_customer = false;
-        $customersForSelect = Customer::groupBy('state')
-                ->get(['state'])
-                ->pluck('state', 'state'); 
+//        $customersForSelect = Customer::groupBy('state')
+//                ->get(['state'])
+//                ->pluck('state', 'state'); 
 
-        return view('customers.create')->with(compact('customer', 'customersForSelect'));
+        return view('customers.create')->with(compact('customer'));
     }
 
     /**

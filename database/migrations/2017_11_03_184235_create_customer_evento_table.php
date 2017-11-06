@@ -20,8 +20,8 @@ class CreateCustomerEventoTable extends Migration {
 
         Schema::table('customer_evento', function (Blueprint $table) {
             $table->primary(['customer_id', 'evento_id']);
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('evento_id')->references('id')->on('eventos');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('evento_id')->references('id')->on('eventos')->onDelete('cascade');
         });
     }
 

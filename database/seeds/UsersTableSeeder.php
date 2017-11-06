@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder {
         $user->email = 'jeangomes.ti@gmail.com';
         //$user->options = ['name'=>'gomes'];
         $user->password = bcrypt(123456);
-        $user->save();
+        //$user->save();
 
         factory(User::class, 15)->create();
     }

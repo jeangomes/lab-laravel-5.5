@@ -76,9 +76,9 @@ class EventoController extends Controller {
      */
     public function destroy($id) {
         $evento = Evento::findOrFail($id);
-        var_dump($evento);
-        exit();
-        $evento->delete();
+        if ($evento->delete()) {
+            return redirect()->route('evento.index')->with('aviso', 'Evento deletado!');
+        }
     }
 
 }

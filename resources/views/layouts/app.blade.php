@@ -58,7 +58,7 @@
                                     <li>
                                         <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                                   document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
@@ -74,6 +74,15 @@
                 </div>
             </nav>
             <div class="container-fluid">
+                @if (session('aviso'))
+                <div class="alert alert-success">
+                    {{ session('aviso') }}
+                </div>
+                @endif
+                <div class="page-header">
+                    <h1>@yield('title') <small>Subtext for header</small></h1>
+                </div>
+                
                 @yield('content')
             </div>
         </div>
