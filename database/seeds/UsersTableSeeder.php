@@ -11,10 +11,11 @@ class UsersTableSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        User::truncate();
+        //User::truncate();
 
         $user = new User();
         $user->name = 'Jean Gomes';
+        $user->idade = 12;
         $user->email = 'jeangomes.ti@gmail.com';
         //$user->options = ['name'=>'gomes'];
         $user->password = bcrypt(123456);
