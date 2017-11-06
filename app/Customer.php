@@ -12,5 +12,8 @@ class Customer extends Model {
         'birth_date' => 'date'
     ];
 
+    public function eventos() {
+        return $this->belongsToMany('App\Evento', 'customer_evento');
+    }
 
 }

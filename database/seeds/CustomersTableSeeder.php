@@ -11,8 +11,8 @@ class CustomersTableSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        Customer::truncate();
-        factory(Customer::class, 12)->create();
+        //Customer::truncate();
+        factory(Customer::class, 80)->create();
     }
 
 }
