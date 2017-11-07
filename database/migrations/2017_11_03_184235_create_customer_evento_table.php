@@ -15,6 +15,7 @@ class CreateCustomerEventoTable extends Migration {
         Schema::create('customer_evento', function (Blueprint $table) {
             $table->integer('customer_id')->unsigned()->index();
             $table->integer('evento_id')->unsigned()->index();
+            $table->timestamp('subscribe_date')->useCurrent();
             $table->timestamps();
         });
 
