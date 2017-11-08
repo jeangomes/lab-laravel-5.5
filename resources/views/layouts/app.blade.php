@@ -12,6 +12,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('images/favicon.ico') }}" rel="icon" type="image/x-icon" />
     </head>
     <body>
         <div id="app">
@@ -29,7 +30,8 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'Laravel') }}
+<!--                            {{ config('app.name', 'Laravel') }}-->
+                            <img src="{{ asset('images/logo-header.png') }}" >
                         </a>
                     </div>
 
@@ -44,11 +46,10 @@
                             <!-- Authentication Links -->
                             @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('register') }}">Cadastro</a></li>
                             @else
-                            <li><a href="{{ route('clientes.index') }}">Clientes</a></li>
+                            <li><a href="{{ route('membros.index') }}">Membros</a></li>
                             <li><a href="{{ route('evento.index') }}">Eventos</a></li>
-                            <li><a href="{{ route('clientes.create') }}">Clientes new</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -80,7 +81,7 @@
                 </div>
                 @endif
                 <div class="page-header">
-                    <h1>@yield('title') <small>Subtext for header</small></h1>
+                    <h1>@yield('title')</h1>
                 </div>
                 
                 @yield('content')

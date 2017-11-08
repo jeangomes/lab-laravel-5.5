@@ -21,7 +21,7 @@
             <td>{{$customer->birth_date->format('d/m/Y')}} - {{$customer->birth_date->diffForHumans()}}</td>
             <td>-</td>
             <td>
-                <a href="{{ route('clientes.edit',$customer->id) }}" class="btn btn-default">editar</a>
+                <a href="{{ route('membros.edit',$customer->id) }}" class="btn btn-default">editar</a>
                 <a href="#" class="btn btn-default">excluir</a>
             </td>
         </tr>
