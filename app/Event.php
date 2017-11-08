@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Evento extends Model {
+class Event extends Model {
 
     //
     public function customers() {
-        return $this->belongsToMany('App\Customer', 'customer_evento');
+        return $this->belongsToMany('App\User', 'event_user');
     }
 
 }

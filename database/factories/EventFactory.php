@@ -3,7 +3,7 @@
 use Faker\Generator as Faker;
 use Illuminate\Support\Carbon;
 
-$factory->define(App\Evento::class, function (Faker $faker) {
+$factory->define(App\Event::class, function (Faker $faker) {
     $startDate = Carbon::createFromTimeStamp($faker->dateTimeBetween('-3 year', '+1 year')->getTimestamp());
     $endDate = Carbon::createFromFormat('Y-m-d H:i:s', $startDate)->addDays(3);
 

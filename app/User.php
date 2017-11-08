@@ -15,7 +15,7 @@ class User extends Authenticatable {
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','idade',
+        'name', 'email', 'password', 'birth_date',
     ];
 
     /**
@@ -28,6 +28,8 @@ class User extends Authenticatable {
     ];
     protected $casts = [
         'options' => 'json',
+        'special_customer' => 'boolean',
+        'birth_date' => 'date',
     ];
 
 }

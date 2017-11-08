@@ -51,7 +51,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::resource('clientes', 'CustomersController');
+    Route::resource('membros', 'UserController');
     //Route::get('clientes', ['as' => 'customer.index', 'uses' => 'CustomersController@index']);
     ///Route::get('cliente/{id}',['as' => 'customer.get', 'uses' => 'CustomersController@get']);
     //Route::post('cliente',['as' => 'customer.create', 'uses' => 'CustomersController@create']);
@@ -60,7 +60,7 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::resource('evento', 'EventoController');
+    Route::resource('evento', 'EventController');
     //Route::get('clientes', ['as' => 'customer.index', 'uses' => 'CustomersController@index']);
     ///Route::get('cliente/{id}',['as' => 'customer.get', 'uses' => 'CustomersController@get']);
     //Route::post('cliente',['as' => 'customer.create', 'uses' => 'CustomersController@create']);

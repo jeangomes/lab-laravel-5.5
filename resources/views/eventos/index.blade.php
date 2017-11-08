@@ -40,7 +40,7 @@
             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">Opções <span class="caret"></span></a> 
             <ul role="menu" class="dropdown-menu">
                 <li><a href="{{ route('evento.show',$evento->id) }}" class="btn btn-default">Detalhe</a></li>
-                <li><a href="{{ route('clientes.edit',$evento->id) }}" class="btn btn-default">editar</a></li>
+                <li><a href="{{ route('evento.edit',$evento->id) }}" class="btn btn-default">editar</a></li>
                 <li>
                     {!! Form::open(['method' => 'DELETE','route' => ['evento.destroy', $evento->id],'style'=>'display:inline']) !!}
                     <button type="submit" style="display: inline;" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>

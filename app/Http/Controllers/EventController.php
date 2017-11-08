@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Evento;
+use App\Event;
 use Illuminate\Http\Request;
 
-class EventoController extends Controller {
+class EventController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class EventoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $eventos = Evento::with('customers')->paginate(15);
+        $eventos = Event::with('customers')->paginate(15);
         return view('eventos.index')->with(compact('eventos'));
     }
 
@@ -43,7 +43,7 @@ class EventoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        $evento = Evento::with('customers')->get()->find($id);
+        $evento = Event::with('customers')->get()->find($id);
         return view('eventos.show')->with(compact('evento'));
     }
 
@@ -75,7 +75,7 @@ class EventoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        $evento = Evento::findOrFail($id);
+        $evento = Event::findOrFail($id);
         if ($evento->delete()) {
             return redirect()->route('evento.index')->with('aviso', 'Evento deletado!');
         }
