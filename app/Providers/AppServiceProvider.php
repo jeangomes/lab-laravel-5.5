@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Faker\Generator as FakerGenerator;
 use Faker\Factory as FakerFactory;
+use Illuminate\Support\Facades\Route;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::resourceVerbs([
+            'create' => 'cadastrar',
+            'edit' => 'editar',
+        ]);
     }
 
     /**

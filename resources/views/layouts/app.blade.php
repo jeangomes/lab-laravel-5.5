@@ -50,6 +50,8 @@
                             @else
                             <li><a href="{{ route('membros.index') }}">Membros</a></li>
                             <li><a href="{{ route('evento.index') }}">Eventos</a></li>
+                            <li><a href="{{ route('produto.index') }}">Produtos</a></li>
+                            <li><a href="">Pedidos</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
