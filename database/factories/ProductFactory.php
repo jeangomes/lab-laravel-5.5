@@ -5,7 +5,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Product::class, function (Faker $faker) {        
 
     return [
-        'name' => $faker->colorName,
+        'name' => 'Queijo temperado com pimenta e oregano'.$faker->numerify(),
         'price' => $faker->randomFloat(2, 8, 50),
     ];
 });

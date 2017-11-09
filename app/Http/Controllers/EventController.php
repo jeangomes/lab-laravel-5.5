@@ -6,6 +6,10 @@ use App\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller {
+    
+    public function __construct() {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -14,7 +18,7 @@ class EventController extends Controller {
      */
     public function index() {
         $eventos = Event::with('customers')->paginate(15);
-        return view('eventos.index')->with(compact('eventos'));
+        return view('adm.eventos.index')->with(compact('eventos'));
     }
 
     /**
@@ -44,7 +48,7 @@ class EventController extends Controller {
      */
     public function show($id) {
         $evento = Event::with('customers')->get()->find($id);
-        return view('eventos.show')->with(compact('evento'));
+        return view('adm.eventos.show')->with(compact('evento'));
     }
 
     /**
@@ -77,7 +81,7 @@ class EventController extends Controller {
     public function destroy($id) {
         $evento = Event::findOrFail($id);
         if ($evento->delete()) {
-            return redirect()->route('evento.index')->with('aviso', 'Evento deletado!');
+            return redirect()->route('adm.evento.index')->with('aviso', 'Evento deletado!');
         }
     }
 

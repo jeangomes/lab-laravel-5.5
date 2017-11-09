@@ -16,6 +16,7 @@ class CreateEventsTable extends Migration {
             $table->increments('id');
             $table->string('title', 80);
             $table->integer('vacancy');
+            $table->integer('parent_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->decimal('price', 10, 2);
@@ -23,6 +24,10 @@ class CreateEventsTable extends Migration {
             $table->dateTime('final_date');
             $table->text('description');
             $table->timestamps();
+        });
+
+        Schema::table('events', function (Blueprint $table) {
+            $table->foreign('parent_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 

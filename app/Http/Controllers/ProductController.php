@@ -6,6 +6,10 @@ use App\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller {
+    
+    public function __construct() {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -14,7 +18,7 @@ class ProductController extends Controller {
      */
     public function index() {
         $products = Product::paginate(15);
-        return view('products.index')->with(compact('products'));
+        return view('adm.products.index')->with(compact('products'));
     }
 
     /**

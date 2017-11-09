@@ -2,23 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Purchase;
+use App\Product;
 use Illuminate\Http\Request;
 
-class UserController extends Controller {
-    
-    public function __construct() {
-        $this->middleware('auth');
-    }
-
+class PurchaseController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $customers = User::all();
-        return view('users.index')->with(compact('customers'));
+    public function index()
+    {
+        //
     }
 
     /**
@@ -26,8 +23,10 @@ class UserController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
-        //
+    public function create()
+    {
+         $products = Product::all();
+        return view('membro.purchase.new')->with(compact('products'));
     }
 
     /**
@@ -36,27 +35,30 @@ class UserController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user) {
+    public function show(Purchase $purchase)
+    {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user) {
+    public function edit(Purchase $purchase)
+    {
         //
     }
 
@@ -64,21 +66,22 @@ class UserController extends Controller {
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user) {
+    public function update(Request $request, Purchase $purchase)
+    {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user) {
+    public function destroy(Purchase $purchase)
+    {
         //
     }
-
 }

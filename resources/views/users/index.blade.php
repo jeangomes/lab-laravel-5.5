@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Membros - Listar')
 @section('content')
     <table class="table table-bordered">
         <thead>
