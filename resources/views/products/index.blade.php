@@ -11,7 +11,7 @@
             <tr>
                 <th>N.:</th>
                 <th>Name</th>
-                <th>City/State</th>
+                <th>Preço</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -19,7 +19,7 @@
         <tr class="{{$loop->index % 2 ? 'bg-warning':''}}">
             <td>{{$product->id}}</td>
             <td>{{$product->name}}</td>
-            <td>{{$product->price}}}}</td>
+            <td>{{$product->price}}</td>
             <td>
                 <a href="{{ route('produto.edit',$product->id) }}" class="btn btn-default">editar</a>
                 <a href="#" class="btn btn-default">excluir</a>
