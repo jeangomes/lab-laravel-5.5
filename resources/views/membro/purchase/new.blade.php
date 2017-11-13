@@ -2,16 +2,26 @@
 @section('title', 'Pedido - Novo')
 
 @section('content')
-    <form class="form-horizontal">
+    
+    {!! Form::open(['route' => 'pedido.store','class'=>'form-horizontal']) !!}    
         @foreach($products as $product)
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-4 control-label">{{$product->name}}</label>
+                <label for="{{'qtd_' . $product->id}}" class="col-sm-4 control-label">{{$product->name}}</label>
                 <div class="col-sm-1">
                     <p class="form-control-static">R$ {{number_format($product->price,2,',','')}}</p>
                 </div>
 
                 <div class="col-sm-2">
-                    <input type="number" class="form-control" id="inputEmail3" placeholder="Qtd">
+                    {!!Form::number('qtd[' . $product->id . ']', null,
+                    ['class'=>'form-control',
+                    'ng-model'=>'qtd_' . $product->id,
+                    'placeholder'=>'Qtd','min'=>0,
+                    'id'=>'qtd_' . $product->id])!!}
+                </div>
+                <div class="col-sm-1">
+                    <p class="form-control-static">
+                        <% {{'qtd_'.$product->id}}*{{$product->price}} | currency %>
+                    </p>
                 </div>
             </div>
         <hr>
@@ -20,8 +30,11 @@
             <div class="col-sm-offset-1 col-sm-10">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Estou ciente de que o valor pode sofrer alterações
-                    </label>
+                        {!! Form::checkbox('ciente', null,['required'=>true])!!} 
+                        Estou ciente de que o valor pode sofrer alterações 
+                        devido ao peso final de alguns produtos, 
+                        e que o pagamento será no ato da entrega.
+                    </label>                    
                 </div>
             </div>
         </div>
@@ -30,5 +43,5 @@
                 <button type="submit" class="btn btn-warning">Salvar</button>
             </div>
         </div>
-    </form>
+    {!! Form::close() !!}
 @stop

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html ng-app="sampleApp" lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Caveiras da Montanha</title>
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -48,10 +48,15 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Cadastro</a></li>
                             @else
-                            <li><a href="{{ route('membros.index') }}">Membros</a></li>
-                            <li><a href="{{ route('evento.index') }}">Eventos</a></li>
-                            <li><a href="{{ route('produto.index') }}">Produtos</a></li>
-                            <li><a href="{{ route('pedido.create') }}">Pedidos</a></li>
+                                @if (Auth::user()->admin)
+                                    <li><a href="{{ route('membros.index') }}">Membros</a></li>
+                                    <li><a href="{{ route('evento.index') }}">Eventos</a></li>
+                                    <li><a href="{{ route('produto.index') }}">Produtos</a></li>
+                                    <li><a href="{{ route('pedido.index') }}">Pedidos</a></li>                                      
+                                @else
+                                    <li><a href="{{ route('pedido.create') }}">Pedidos</a></li>  
+                                @endif                            
+                                                           
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -92,5 +97,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="{{ asset('js/init.js') }}"></script>
     </body>
 </html>
