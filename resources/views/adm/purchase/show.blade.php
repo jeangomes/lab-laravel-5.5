@@ -1,9 +1,6 @@
 @extends('layouts.app')
-
+@section('title', "Pedido #$purchased->id  - Detalhe")
 @section('content')
-    <div class="page-header">
-        <h1>Pedido #{{$purchased->id}} - Detalhe</h1>
-    </div>
     <table class="table table-bordered">
         <tr>
             <th>Nome: {{$purchased->user->name}}</th>
@@ -25,15 +22,15 @@
             @foreach($purchased->products as $p)
                 <tr>
                     <td>{{$p->name}}</td>
-                    <td>R$ {{$p->price}}</td>
+                    <td>R$ {{number_format($p->price,2,',','')}}</td>
                     <td>{{$p->pivot->qtd}}</td>
-                    <td>R$ </td>
+                    <td>R$ {{number_format($p->pivot->total_price,2,',','')}}</td>
                 </tr>
             @endforeach
         </tbody>
         <tfoot>
             <tr class="text-right">
-                <td colspan="4">Valor total: R$ 1.667,50</td>
+                <td colspan="4">Valor total: R$ {{number_format($purchased->amount,2,',','')}}</td>
             </tr>
         </tfoot>
     </table>

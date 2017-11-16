@@ -29,9 +29,9 @@
                         </button>
 
                         <!-- Branding Image -->
-                        <a class="navbar-brand" href="{{ url('/') }}">
+                        <a style="padding: 0 15px;" class="navbar-brand" href="{{ url('/') }}">
 <!--                            {{ config('app.name', 'Laravel') }}-->
-                            <img src="{{ asset('images/logo-header.png') }}" >
+                            <img style="height: inherit;" src="{{ asset('images/logo-header.png') }}" >
                         </a>
                     </div>
 
@@ -54,7 +54,8 @@
                                     <li><a href="{{ route('produto.index') }}">Produtos</a></li>
                                     <li><a href="{{ route('pedido.index') }}">Pedidos</a></li>                                      
                                 @else
-                                    <li><a href="{{ route('pedido.create') }}">Pedidos</a></li>  
+                                    <li><a href="{{ route('pedido.index') }}">Encomendas</a></li>  
+                                    <li><a href="{{ route('pedido.create') }}">Fazer encomenda</a></li> 
                                 @endif                            
                                                            
                             <li class="dropdown">
@@ -83,9 +84,9 @@
             </nav>
             <div class="container">
                 @if (session('aviso'))
-                <div class="alert alert-success">
-                    {{ session('aviso') }}
-                </div>
+                    <div class="alert alert-success">
+                        {{ session('aviso') }}
+                    </div>
                 @endif
                 <div class="page-header">
                     <h1>@yield('title')</h1>

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class PurchaseController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth');    
+        $this->middleware('auth');
     }
 
     /**
@@ -20,8 +20,14 @@ class PurchaseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $purchases = Purchase::with('user')->get();
-        return view('adm.purchase.index')->with(compact('purchases'));
+        $user = Auth::user();
+        if ($user->admin) {
+            $purchases = Purchase::with('user')->get();
+            return view('adm.purchase.index')->with(compact('purchases'));
+        } else {
+            $purchases = Purchase::with('user')->where('user_id', $user->id)->get();
+            return view('membro.purchase.index')->with(compact('purchases'));
+        }
     }
 
     /**
@@ -41,20 +47,43 @@ class PurchaseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $input = $request->only('ciente', 'qtd');
-        if ($input['ciente'] === 'on') {
-            $user = Auth::user();
-            $purchase = Purchase::create(['user_id'=>$user->id]); 
-            foreach ($input['qtd'] as $key => $value) {
-                if (!is_null($value)) {
-                    DB::table('product_purchase')->insert([
-                        'purchase_id'=>$purchase->id,
-                        'product_id'=>$key,
-                        'qtd'=>$value
-                            ]); 
-                }
+        try {
+            $input = $request->only('ciente', 'qtd');
+            if ($input['ciente'] === 'on') {
+                $user = Auth::user();
+                $purchase = Purchase::create(['user_id' => $user->id, 'amount' => 0]);
+                $this->storeItens($input, $purchase->id);
+                $this->setAmount($purchase->id);
+            }
+            return redirect()->route('pedido.show', $purchase->id)
+                            ->with('aviso', 'Encomenda solicitada com sucesso!');
+        } catch (Exception $ex) {
+            
+        }
+    }
+
+    private function storeItens($input, $purchase_id) {
+        foreach ($input['qtd'] as $key => $value) {
+            if (!is_null($value)) {
+                $unitary_price = Product::select('price')->find($key);
+                DB::table('product_purchase')->insert([
+                    'purchase_id' => $purchase_id,
+                    'product_id' => $key,
+                    'unitary_price' => $unitary_price->price,
+                    'qtd' => $value,
+                    'total_price' => $unitary_price->price * $value,
+                ]);
             }
         }
+    }
+
+    private function setAmount($purchase_id) {
+        $purchase = Purchase::find($purchase_id);
+        $amount = DB::table('product_purchase')
+                ->where('purchase_id', $purchase_id)
+                ->sum('total_price');
+        $purchase->amount = $amount;
+        $purchase->save();
     }
 
     /**
@@ -63,9 +92,20 @@ class PurchaseController extends Controller {
      * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function show(Purchase $purchase) {                
-        $purchased = Purchase::with(['user','products'])->get()->find($purchase->id);
-        return view('adm.purchase.show')->with(compact('purchased'));
+    public function show(Purchase $purchase) {
+        $user = Auth::user();
+        if ($user->admin) {
+            $purchased = Purchase::with(['user', 'products'])->get()->find($purchase->id);
+        } else {
+            $purchased = Purchase::with(['user', 'products'])
+                            ->where('id', $purchase->id)
+                            ->where('user_id', $user->id)->first();
+        }
+        if (!is_null($purchased)) {
+            return view('adm.purchase.show')->with(compact('purchased'));
+        }
+        return redirect()->route('pedido.index')
+                        ->with('aviso', 'Pedido não encontrado, listando seus pedidos!');
     }
 
     /**
@@ -75,7 +115,20 @@ class PurchaseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Purchase $purchase) {
-        //
+
+        $products = DB::table('products')
+                ->select('products.*')
+                ->selectRaw('(select qtd from tbl_lv_product_purchase pp '
+                        . 'where pp.product_id=tbl_lv_products.id and pp.purchase_id=?) as qtd', [$purchase->id])
+                ->get();
+
+        $user = Auth::user();
+        $purchased = Purchase::with(['user'])
+                        ->where('id', $purchase->id)
+                        ->where('user_id', $user->id)->first();
+        if (!is_null($purchased)) {
+            return view('membro.purchase.edit')->with(compact('products', 'purchased'));
+        }
     }
 
     /**

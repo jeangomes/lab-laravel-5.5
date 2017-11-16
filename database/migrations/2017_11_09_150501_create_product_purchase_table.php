@@ -15,6 +15,8 @@ class CreateProductPurchaseTable extends Migration {
         Schema::create('product_purchase', function (Blueprint $table) {
             $table->integer('purchase_id')->unsigned()->index();
             $table->integer('product_id')->unsigned()->index();
+            $table->decimal('unitary_price', 10, 2);
+            $table->decimal('total_price', 10, 2);
             $table->integer('qtd')->unsigned();
         });
 
