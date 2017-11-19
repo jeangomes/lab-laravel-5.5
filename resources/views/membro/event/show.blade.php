@@ -1,23 +1,23 @@
 @extends('layouts.app')
 @section('content')
     <div class="page-header">
-        <h1>{{$evento->title}} - Participantes</h1>
+        <h1>Amigo Oculto em Alagoa  - Participantes</h1>
     </div>    
     <table class="table table-bordered">   
         <thead>
             <tr>
                 <th>Participante</th>
-                <th>Entrada</th>
-                <th>Pago</th>
-                <th>Documento</th>
+                <th>Sugestões</th>
             </tr>
         </thead>
-        @foreach($evento->customers as $customer)
+        @foreach($evento as $customer)
         <tr>
-            <td>{{$customer->name}}</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
+            <td>{{ $customer['name'] }}</td>            
+            <td>
+                @foreach($customer['dicas'] as $coisa)
+                <label class="badge">{{ $coisa->gift_tip }}</label>
+                @endforeach 
+            </td>
         </tr>
         @endforeach        
     </table>

@@ -13,14 +13,15 @@ class CreateEventUserTable extends Migration {
      */
     public function up() {
         Schema::create('event_user', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('event_id')->unsigned()->index();
+            $table->integer('event_id')->unsigned()->index();            
             $table->timestamp('subscribe_date')->useCurrent();
             $table->timestamps();
         });
 
         Schema::table('event_user', function (Blueprint $table) {
-            $table->primary(['user_id', 'event_id']);
+            $table->unique(['user_id', 'event_id'], 'unique_participation');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });

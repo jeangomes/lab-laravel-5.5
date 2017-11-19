@@ -28,3 +28,4 @@ Route::group(['prefix' => 'admin'], function() {
     Route::resource('evento', 'EventController');    
 });
 Route::resource('pedido', 'PurchaseController');
+Route::resource('amigo-oculto', 'AmigoOcultoController');

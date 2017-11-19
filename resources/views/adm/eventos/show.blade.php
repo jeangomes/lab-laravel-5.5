@@ -15,7 +15,7 @@
         @foreach($evento->customers as $customer)
         <tr>
             <td>{{$customer->name}}</td>
-            <td>-</td>
+            <td>{{$customer->pivot->subscribe_date}}</td>
             <td>-</td>
             <td>-</td>
         </tr>

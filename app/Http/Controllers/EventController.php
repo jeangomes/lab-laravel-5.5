@@ -47,7 +47,7 @@ class EventController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        $evento = Event::with('customers')->get()->find($id);
+        $evento = Event::with('customers')->find($id);
         return view('adm.eventos.show')->with(compact('evento'));
     }
 
