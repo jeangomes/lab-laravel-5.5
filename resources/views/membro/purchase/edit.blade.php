@@ -3,7 +3,8 @@
 
 @section('content')
     
-    {!! Form::open(['route' => 'pedido.store','class'=>'form-horizontal']) !!}    
+    {!! Form::open(['route' => ['pedido.update',$purchased->id],'class'=>'form-horizontal']) !!}    
+        <input type="hidden" name="_method" value="PUT">
         @foreach($products as $product)
             <div class="form-group">
                 <label for="{{'qtd_' . $product->id}}" class="col-sm-4 control-label">{{$product->name}}</label>
@@ -16,11 +17,11 @@
                     ['class'=>'form-control',
                     'ng-model'=>'qtd_' . $product->id,
                     'ng-init'=>"qtd_$product->id=$product->qtd",
-                    'placeholder'=>'Qtd','min'=>0,
+                    'placeholder'=>'Qtd','min'=>1,'max'=>10,
                     'id'=>'qtd_' . $product->id])!!}
                 </div>
                 <div class="col-sm-1">
-                    <p class="hide form-control-static">
+                    <p class="form-control-static ng-cloak">
                         <% {{'qtd_'.$product->id}}*{{$product->price}} | currency %>
                     </p>
                 </div>

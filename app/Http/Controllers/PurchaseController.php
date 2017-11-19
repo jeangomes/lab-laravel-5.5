@@ -50,16 +50,28 @@ class PurchaseController extends Controller {
         try {
             $input = $request->only('ciente', 'qtd');
             if ($input['ciente'] === 'on') {
-                $user = Auth::user();
-                $purchase = Purchase::create(['user_id' => $user->id, 'amount' => 0]);
-                $this->storeItens($input, $purchase->id);
-                $this->setAmount($purchase->id);
+                if ($this->validateQtd($input['qtd'])) {
+                    $user = Auth::user();
+                    $purchase = Purchase::create(['user_id' => $user->id, 'amount' => 0]);
+                    $this->storeItens($input, $purchase->id);
+                    $this->setAmount($purchase->id);
+                    return redirect()->route('pedido.show', $purchase->id)
+                                    ->with('aviso', 'Encomenda solicitada com sucesso!');
+                }
+                return redirect()->route('pedido.index')
+                                ->with('aviso', 'Encomenda não solicitada com sucesso, informe algum item!');
             }
-            return redirect()->route('pedido.show', $purchase->id)
-                            ->with('aviso', 'Encomenda solicitada com sucesso!');
         } catch (Exception $ex) {
             
         }
+    }
+
+    private function validateQtd($qtd) {
+        $func = function($q) {
+            return !(is_null($q));
+        };
+        $evento = array_map($func, $qtd);
+        return !empty(array_filter($evento));
     }
 
     private function storeItens($input, $purchase_id) {
@@ -118,8 +130,8 @@ class PurchaseController extends Controller {
 
         $products = DB::table('products')
                 ->select('products.*')
-                ->selectRaw('(select qtd from tbl_lv_product_purchase pp '
-                        . 'where pp.product_id=tbl_lv_products.id and pp.purchase_id=?) as qtd', [$purchase->id])
+                ->selectRaw('(select qtd from tbl_product_purchase pp '
+                        . 'where pp.product_id=tbl_products.id and pp.purchase_id=?) as qtd', [$purchase->id])
                 ->get();
 
         $user = Auth::user();
@@ -139,7 +151,19 @@ class PurchaseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Purchase $purchase) {
-        //
+        try {
+            $input = $request->only('ciente', 'qtd');
+            if ($input['ciente'] === 'on') {
+                DB::table('product_purchase')
+                        ->where('purchase_id', '=', $purchase->id)->delete();
+                $this->storeItens($input, $purchase->id);
+                $this->setAmount($purchase->id);
+            }
+            return redirect()->route('pedido.show', $purchase->id)
+                            ->with('aviso', 'Encomenda alterada com sucesso!');
+        } catch (Exception $ex) {
+            
+        }
     }
 
     /**

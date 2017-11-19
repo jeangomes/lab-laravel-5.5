@@ -15,11 +15,11 @@
                     {!!Form::number('qtd[' . $product->id . ']', null,
                     ['class'=>'form-control',
                     'ng-model'=>'qtd_' . $product->id,
-                    'placeholder'=>'Qtd','min'=>0,
+                    'placeholder'=>'Qtd','min'=>1,'max'=>10,
                     'id'=>'qtd_' . $product->id])!!}
                 </div>
                 <div class="col-sm-1">
-                    <p class="form-control-static">
+                    <p class="form-control-static ng-cloak">
                         <% {{'qtd_'.$product->id}}*{{$product->price}} | currency %>
                     </p>
                 </div>
