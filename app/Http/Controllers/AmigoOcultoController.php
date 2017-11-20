@@ -6,6 +6,8 @@ use App\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\UserCreated;
 
 class AmigoOcultoController extends Controller {
 
@@ -64,8 +66,12 @@ class AmigoOcultoController extends Controller {
                     $this->storeTips($input['participation_id'], $input);
                 }
             }
+            Notification::send(null, new UserCreated('Entrou no amigo oculto: '.Auth::id()));
             return redirect()->route('amigo-oculto.index')
-                            ->with('aviso', 'Participação enviada com sucesso!');
+                            ->with([
+                                'aviso' => 'Participação enviada com sucesso.',
+                                'type' => 'success'
+            ]);
         } catch (Exception $ex) {
             
         }
@@ -122,14 +128,24 @@ class AmigoOcultoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        DB::table('event_user')
-                ->where([
-                    ['user_id', '=', $id],
-                    ['event_id', '=', '9'],
-                ])->delete();
-        return view('amigo-oculto.entrar');
+        $result = DB::table('event_user')
+                        ->where([
+                            ['user_id', '=', $id],
+                            ['event_id', '=', '9'],
+                        ])->delete();
+        if ($result) {
+            Notification::send(null, new UserCreated('Saiu do amigo oculto: '.Auth::id()));
+            return redirect()->route('amigo-oculto.index')
+                            ->with([
+                                'aviso' => 'Participação removida com sucesso.',
+                                'type' => 'danger'
+            ]);
+        }
         return redirect()->route('amigo-oculto.index')
-                        ->with('aviso', 'Participação removida com sucesso!');
+                        ->with([
+                                'aviso' => 'Você não estava participando.',
+                                'type' => 'warning'
+            ]);
     }
 
 }

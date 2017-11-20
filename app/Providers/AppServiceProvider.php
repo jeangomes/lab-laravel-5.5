@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Faker\Generator as FakerGenerator;
 use Faker\Factory as FakerFactory;
 use Illuminate\Support\Facades\Route;
+use App\Purchase;
+use App\Observers\PurchaseObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
             'create' => 'cadastrar',
             'edit' => 'editar',
         ]);
+        
+        Purchase::observe(PurchaseObserver::class);
     }
 
     /**

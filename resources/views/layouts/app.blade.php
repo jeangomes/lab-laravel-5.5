@@ -16,7 +16,15 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        
+        <script src="{{ asset('js/ngMask.min.js') }}"></script>
         <script src="{{ asset('js/init.js') }}"></script>
+        <style type="text/css">
+            .form-group.required .control-label:after {
+                content:" *";
+                color:red;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
@@ -98,11 +106,12 @@
                 </div>
             </nav>
             <div class="container">
-                @if (session('aviso'))
-                    <div class="alert alert-success">
-                        {{ session('aviso') }}
-                    </div>
-                @endif
+            @if (session('aviso'))
+                <div class="alert alert-{{session('type')}} alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <p><i class="icon fa fa-check"></i> {{ session('aviso') }}</p>            
+                </div>
+            @endif
                 <div class="page-header">
                     <h1>@yield('title')</h1>
                 </div>

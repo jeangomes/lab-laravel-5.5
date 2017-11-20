@@ -50,7 +50,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:4|confirmed',
+            'birth_date'=>'date_format:d/m/Y|before:today',
+            'nick_name'=>'max:150',
         ]);
     }
 
@@ -61,13 +63,16 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data) 
-    { 
+    {        
+        $birth_date = implode("-", array_reverse(explode("/", $data['birth_date'])));
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'birth_date' => date('Y-m-d', strtotime($data['birth_date'])),
+            'birth_date' => $birth_date,
             'cellphone' => $data['cellphone'],
+            'nick_name' => $data['nick_name'],
             'password' => bcrypt($data['password']),
         ]);
+        
     }
 }

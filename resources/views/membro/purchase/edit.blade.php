@@ -32,7 +32,7 @@
             <div class="col-sm-offset-1 col-sm-10">
                 <div class="checkbox">
                     <label>
-                        {!! Form::checkbox('ciente', null,['required'=>true])!!} 
+                        {!! Form::checkbox('ciente', 1,false,['required'=>true])!!} 
                         Estou ciente de que o valor pode sofrer alterações 
                         devido ao peso final de alguns produtos, 
                         e que o pagamento será no ato da entrega.

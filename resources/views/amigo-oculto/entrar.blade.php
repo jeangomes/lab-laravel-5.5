@@ -19,6 +19,7 @@
             </div>
         @endif
         @if($participation_id)
+            {!! Form::hidden('participar', 1) !!} 
             <div class="alert alert-danger">
                 <p>Você já está participando, caso deseje editar as sugestões informe novamente abaixo.</p>
             </div>
@@ -30,7 +31,7 @@
             <div class="form-group">
                 <div class="col-md-6">
                     {!! Form::label('dica[' . $i . ']',$i.'ª Dica de presente',array('class'=>'control-label')) !!}
-                    {!! Form::text('dica[' . $i . ']',null,['class'=>'form-control']) !!}
+                    {!! Form::text('dica[' . $i . ']',null,['class'=>'form-control','maxlength'=>150]) !!}
                 </div>
             </div>
         @endfor

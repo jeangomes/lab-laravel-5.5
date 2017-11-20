@@ -49,17 +49,23 @@ class PurchaseController extends Controller {
     public function store(Request $request) {
         try {
             $input = $request->only('ciente', 'qtd');
-            if ($input['ciente'] === 'on') {
+            if ((int) $input['ciente'] === 1) {
                 if ($this->validateQtd($input['qtd'])) {
                     $user = Auth::user();
                     $purchase = Purchase::create(['user_id' => $user->id, 'amount' => 0]);
                     $this->storeItens($input, $purchase->id);
                     $this->setAmount($purchase->id);
                     return redirect()->route('pedido.show', $purchase->id)
-                                    ->with('aviso', 'Encomenda solicitada com sucesso!');
+                                    ->with([
+                                        'aviso' => 'Encomenda solicitada com sucesso.',
+                                        'type' => 'success'
+                    ]);
                 }
-                return redirect()->route('pedido.index')
-                                ->with('aviso', 'Encomenda não solicitada com sucesso, informe algum item!');
+                return redirect()->route('pedido.create')
+                                ->with([
+                                    'aviso' => 'Encomenda não solicitada. Informe ao menos 1 item.',
+                                    'type' => 'danger'
+                ]);
             }
         } catch (Exception $ex) {
             
@@ -153,14 +159,24 @@ class PurchaseController extends Controller {
     public function update(Request $request, Purchase $purchase) {
         try {
             $input = $request->only('ciente', 'qtd');
-            if ($input['ciente'] === 'on') {
-                DB::table('product_purchase')
-                        ->where('purchase_id', '=', $purchase->id)->delete();
-                $this->storeItens($input, $purchase->id);
-                $this->setAmount($purchase->id);
+            if ((int) $input['ciente'] === 1) {
+                if ($this->validateQtd($input['qtd'])) {
+                    DB::table('product_purchase')
+                            ->where('purchase_id', '=', $purchase->id)->delete();
+                    $this->storeItens($input, $purchase->id);
+                    $this->setAmount($purchase->id);
+                    return redirect()->route('pedido.show', $purchase->id)
+                                    ->with([
+                                        'aviso' => 'Encomenda alterada com sucesso.',
+                                        'type' => 'success'
+                    ]);
+                }
+                return redirect()->route('pedido.edit', $purchase->id)
+                                ->with([
+                                    'aviso' => 'Encomenda não alterada. Informe ao menos 1 item.',
+                                    'type' => 'danger'
+                ]);
             }
-            return redirect()->route('pedido.show', $purchase->id)
-                            ->with('aviso', 'Encomenda alterada com sucesso!');
         } catch (Exception $ex) {
             
         }
@@ -173,7 +189,14 @@ class PurchaseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy(Purchase $purchase) {
-        //
+        if ($purchase->delete()) {
+            return redirect()->route('pedido.index')->with(
+                            [
+                                'aviso' => 'Encomenda deletada.',
+                                'type' => 'info'
+                            ]
+            );
+        }
     }
 
 }

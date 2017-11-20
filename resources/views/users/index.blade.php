@@ -16,7 +16,7 @@
         @foreach($customers as $customer)
         <tr class="{{$loop->index % 2 ? 'bg-warning':''}}">
             <td>{{$loop->index + 1}}</td>
-            <td>{{$customer->name}}</td>
+            <td>{{$customer->id}} - {{$customer->name}}</td>
             <td>{{$customer->city}}/{{$customer->state}}</td>
             <td></td>
             <td>{{$customer->birth_date->format('d/m/Y')}} - {{$customer->birth_date->diffForHumans()}}</td>
