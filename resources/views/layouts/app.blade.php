@@ -17,7 +17,7 @@
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         
-        <script src="{{ asset('js/ngMask.min.js') }}"></script>
+        <script src="{{ asset('js/bower_components/angular-ui-mask/dist/mask.js') }}"></script>
         <script src="{{ asset('js/init.js') }}"></script>
         <style type="text/css">
             .form-group.required .control-label:after {

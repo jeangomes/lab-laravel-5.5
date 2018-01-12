@@ -11,6 +11,10 @@ use App\Notifications\UserCreated;
 
 class AmigoOcultoController extends Controller {
 
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -66,7 +70,7 @@ class AmigoOcultoController extends Controller {
                     $this->storeTips($input['participation_id'], $input);
                 }
             }
-            Notification::send(null, new UserCreated('Entrou no amigo oculto: '.Auth::id()));
+            Notification::send(null, new UserCreated('Entrou no amigo oculto: ' . Auth::id()));
             return redirect()->route('amigo-oculto.index')
                             ->with([
                                 'aviso' => 'Participação enviada com sucesso.',
@@ -134,7 +138,7 @@ class AmigoOcultoController extends Controller {
                             ['event_id', '=', '9'],
                         ])->delete();
         if ($result) {
-            Notification::send(null, new UserCreated('Saiu do amigo oculto: '.Auth::id()));
+            Notification::send(null, new UserCreated('Saiu do amigo oculto: ' . Auth::id()));
             return redirect()->route('amigo-oculto.index')
                             ->with([
                                 'aviso' => 'Participação removida com sucesso.',
@@ -143,9 +147,9 @@ class AmigoOcultoController extends Controller {
         }
         return redirect()->route('amigo-oculto.index')
                         ->with([
-                                'aviso' => 'Você não estava participando.',
-                                'type' => 'warning'
-            ]);
+                            'aviso' => 'Você não estava participando.',
+                            'type' => 'warning'
+        ]);
     }
 
 }

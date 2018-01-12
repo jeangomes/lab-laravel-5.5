@@ -17,7 +17,7 @@ class ProductController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $products = Product::paginate(15);
+        $products = Product::paginate(30);
         return view('adm.products.index')->with(compact('products'));
     }
 

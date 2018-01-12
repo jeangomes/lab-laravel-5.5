@@ -1,25 +1,25 @@
-[1. Táiada , 6 ) 
-[2. Goiabada cascão grande , 13 )
-[3. Goiabada cascão pequena , 7 ) 
-[4. Rapadura o masso  inteiro , 12 ) 
-[5. Vinho tinto seco , 25 ) 
-[6. Cachaça com mel , 15 ) 
-[7. Cachaça pura , 12 ) 
-[8. Geleia de amora , 11 ) 
-[9. Suco de uva , 22 ) 
-[10. Azeite 3 qualidades , 47 ) 
-[11. Azeite 1 qualidade , 37 ) 
-[12. Queijo parmesão , de 22 a 28 ) 
-[13. Manteiga potinho , 5 ) 
-[14. Pão , 5 ) 
-[15. 1 pacotinho de rosquinha de nata , 4 ) 
-[16. Rosca ou pão doce , 5 ) 
-[17. Doce de leite grande , 13 ) 
-[18. Doce de leite pequeno , 11 ) 
-[19. Queijo temperado com pimenta calabresa,0) 
-[20. Queijo temperado com oregano,0) 
-[21. Queijo temperado com pimenta e oregano,0) 
-[22. Queijo temperado com oregano e alho,0) 
-[23. Geleia de pera,0) 
-[24. Geleia de jabuticaba,0) 
-[25. Geleia de gengibre,0)
+insert into tbl_products (name,price,created_at) values ('Táiada' , 6 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Goiabada cascão grande' , 13 ,DATE_SUB(now(), INTERVAL 2 HOUR));
+insert into tbl_products (name,price,created_at) values ('Goiabada cascão pequena' , 7 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Rapadura o masso  inteiro' , 12 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Vinho tinto seco' , 25 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Cachaça com mel' , 15 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Cachaça pura' , 12 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Geleia de amora' , 11 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Suco de uva' , 22 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Azeite 3 qualidades' , 47 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Azeite 1 qualidade' , 37 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Queijo parmesão' , 28 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Manteiga potinho' , 5 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Pão' , 5 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('1 pacotinho de rosquinha de nata' , 4 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Rosca ou pão doce' , 5 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Doce de leite grande' , 13 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Doce de leite pequeno' , 11 ,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Queijo temperado com pimenta calabresa',0,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Queijo temperado com oregano',0,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Queijo temperado com pimenta e oregano',0,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Queijo temperado com oregano e alho',0,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Geleia de pera',0,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Geleia de jabuticaba',0,DATE_SUB(now(), INTERVAL 2 HOUR)); 
+insert into tbl_products (name,price,created_at) values ('Geleia de gengibre',0,DATE_SUB(now(), INTERVAL 2 HOUR));

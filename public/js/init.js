@@ -1,4 +1,4 @@
-var app = angular.module('sampleApp', ['ngMask'], function($interpolateProvider) {
+var app = angular.module('sampleApp', ['ui.mask'], function($interpolateProvider) {
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
     });

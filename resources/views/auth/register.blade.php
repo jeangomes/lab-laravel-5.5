@@ -68,10 +68,10 @@
 
                             <div class="col-md-6">
                                 <input id="birth_date" type="text" 
-                                       mask='39/19/9999' 
+                                       ui-mask="99/99/9999"
                                        ng-model="birth_dt"  
                                        ng-init="birth_dt='{{ old('birth_date','') }}'"
-                                       restrict="reject" 
+                                       
                                        class="form-control" 
                                        name="birth_date" 
                                        value="{{ old('birth_date') }}" 
@@ -91,10 +91,10 @@
                             <div class="col-md-6">
                                 <input id="cellphone" 
                                        type="text" 
-                                       mask="(99) 9?9999-9999"
+                                       ui-mask="(99) 9?9999-9999"
                                        ng-model="cellphone"  
                                        ng-init="cellphone='{{ old('cellphone','') }}'"
-                                       restrict="reject" 
+                                       
                                        class="form-control" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
                                        name="cellphone" validate="true"
                                        value="{{ old('cellphone') }}" 
