@@ -29,5 +29,10 @@ $factory->define(App\Event::class, function (Faker $faker) {
         'final_date' => $endDate,
         'description' => $faker->sentence(200),
         'user_id' => $faker->numberBetween(1, 10),
+        'meeting_point'=>'Posto Shell',
+        'equipment'=>'Mochila',
+        'food'=>'Água',
+        'what_is_included'=>'Transporte ida e volta',
+        'what_is_not_included'=>'Alimentação',
     ];
 });

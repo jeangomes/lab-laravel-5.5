@@ -22,7 +22,13 @@ class CreateEventsTable extends Migration {
             $table->decimal('price', 10, 2);
             $table->dateTime('start_date');
             $table->dateTime('final_date');
+            //boarding time
             $table->text('description');
+            $table->string('meeting_point', 200);
+            $table->text('equipment');
+            $table->text('food');
+            $table->text('what_is_included');
+            $table->text('what_is_not_included');
             $table->timestamps();
         });
 

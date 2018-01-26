@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration {
             $table->string('occupation', 25)->nullable();
             $table->json('emergency_contact')->nullable();
             $table->boolean('admin')->default(0);
+            $table->string('nick_name', 30)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

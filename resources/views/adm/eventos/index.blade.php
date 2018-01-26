@@ -6,15 +6,17 @@
         <tr>
             <th rowspan="2">N.:</th>
             <th rowspan="2">Título</th>
-            <th colspan="3" class="text-center">Vagas</th>                
+            <th colspan="4" class="text-center">Vagas</th>      
+            <th rowspan="2">Fila de<br>Espera</th>
             <th rowspan="2">Valor</th>
             <th rowspan="2">Data Inicial</th>
             <th rowspan="2">Data Final</th>
-            <th rowspan="2">Nível</th>
+<!--            <th rowspan="2">Nível</th>-->
             <th rowspan="2">Ações</th>
         </tr>
         <tr>
             <th>Total</th>
+            <th>Reservadas</th>
             <th>Ocupadas</th>
             <th>Restantes</th>
         </tr>
@@ -24,8 +26,10 @@
         <td>{{$evento->id}}</td>
         <td>{{$evento->title}}</td>
         <td>{{$evento->vacancy}}</td>
+        <td>?</td>
         <td>{{count($evento->customers)}}</td>
         <td>{{$evento->vacancy - count($evento->customers)}}</td>
+        <td>?</td>
         <td>R$ {{number_format($evento->price,2,',','')}}</td>
         <td>{{
                      Carbon\Carbon::parse($evento->start_date)->format('d/m/Y H:i')
@@ -35,7 +39,7 @@
                      Carbon\Carbon::parse($evento->final_date)->format('d/m/Y')
             }}
         </td>
-        <td>Fácil</td>
+        
         <td class="dropdown">
             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">Opções <span class="caret"></span></a> 
             <ul role="menu" class="dropdown-menu">
