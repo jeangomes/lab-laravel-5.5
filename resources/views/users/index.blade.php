@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Membros - Listar')
 @section('content')
-    <table class="table table-bordered">
-        <thead>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
             <tr>
                 <th>N.:</th>
                 <th>Name</th>
@@ -12,20 +13,21 @@
                 <th>Nível</th>
                 <th>Ações</th>
             </tr>
-        </thead>
-        @foreach($customers as $customer)
-        <tr class="{{$loop->index % 2 ? 'bg-warning':''}}">
-            <td>{{$loop->index + 1}}</td>
-            <td>{{$customer->id}} - {{$customer->name}}</td>
-            <td>{{$customer->city}}/{{$customer->state}}</td>
-            <td></td>
-            <td>{{$customer->birth_date->format('d/m/Y')}} - {{$customer->birth_date->diffForHumans()}}</td>
-            <td>-</td>
-            <td>
-                <a href="{{ route('membros.edit',$customer->id) }}" class="btn btn-default">editar</a>
-                <a href="#" class="btn btn-default">excluir</a>
-            </td>
-        </tr>
-        @endforeach
-    </table>
+            </thead>
+            @foreach($results as $result)
+                <tr class="{{$loop->index % 2 ? 'bg':''}}">
+                    <td>{{$loop->index + 1}}</td>
+                    <td>{{$result->id}} - {{$result->name}}</td>
+                    <td>{{$result->city}}/{{$result->state}}</td>
+                    <td></td>
+                    <td>{{$result->birth_date->format('d/m/Y')}} - {{$result->birth_date->diffForHumans()}}</td>
+                    <td>-</td>
+                    <td>
+                        <a hidden href="{{ route('membros.edit',$result->id) }}" class="btn btn-default">editar</a>
+                        <a hidden href="#" class="btn btn-default">excluir</a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 @stop
