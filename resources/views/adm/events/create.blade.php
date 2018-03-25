@@ -1,6 +1,12 @@
-@extends('layouts.app')
+@extends('adm.layouts.adm')
+@section('title', 'Eventos - Cadastrar')
 @section('content')
-    {!! Form::open(['route' => 'eventos.store']) !!}
-    	@include('eventos.partials.form')
-    {!! Form::close() !!}
+    <div class="card">
+        <div class="content">
+            {!! Form::open(['route' => 'evento.store','class'=>'form-horizontal','autocomplete'=>'off']) !!}
+            @include('adm.events.partials.form')
+            {{ Form::bsSubmit('Salvar') }}
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop

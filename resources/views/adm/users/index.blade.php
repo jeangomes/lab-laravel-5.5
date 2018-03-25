@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adm.layouts.adm')
 @section('title', 'Membros - Listar')
 @section('content')
     <div class="table-responsive">
