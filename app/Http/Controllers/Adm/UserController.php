@@ -1,23 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Adm;
 
-use App\Event;
+use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class EventController extends Controller {
-    
-    public function __construct() {
-        $this->middleware('auth');
-    }
-
+class UserController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-
+    public function index()
+    {
+        $results = User::paginate(7);
+        return view('adm.users.index')->with(compact('results'));
     }
 
     /**
@@ -25,7 +24,8 @@ class EventController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
     }
 
@@ -35,27 +35,30 @@ class EventController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
-
+    public function show(User $user)
+    {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit(User $user)
+    {
         //
     }
 
@@ -63,24 +66,22 @@ class EventController extends Controller {
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, User $user)
+    {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        $evento = Event::findOrFail($id);
-        if ($evento->delete()) {
-            return redirect()->route('adm.evento.index')->with('aviso', 'Evento deletado!');
-        }
+    public function destroy(User $user)
+    {
+        //
     }
-
 }
