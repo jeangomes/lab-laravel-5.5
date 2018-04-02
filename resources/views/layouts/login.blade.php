@@ -29,44 +29,22 @@
         }
     </style>
 </head>
-<body class="template-page sidebar-collapse">
+<body class="login-page sidebar-collapse">
 <!-- Navbar -->
 @include('layouts.navbar')
 <!-- End Navbar -->
-<div class="wrapper" id="app">
-    <h1 hidden>@yield('title')</h1>
-    <div class="page-header" hidden>
-               <div class="page-header-image hide" data-parallax="true" style="background-image: ;">
-                </div>
-    </div>
-    <div class="section">
         @if (session('aviso'))
             <div class="alert alert-{{session('type')}} alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <p><i class="icon fa fa-check"></i> {{ session('aviso') }}</p>
             </div>
         @endif
-        @if (isset($results))
-            @if($results->lastPage()>1)
-                <div class="card">
-                    <div class="card-body" style="min-height: auto;">
-                        Registros {{ $results->firstItem() }} - {{ $results->lastItem() }}
-                        de {{ $results->total() }} (para a página {{ $results->currentPage() }} )
-                    </div>
-                </div>
-            @endif
-        @endif
-        @yield('content')
-        @if (isset($results))
 
-        @endif
-    </div>
-    @include('layouts.footer')
-</div>
+        @yield('content')
+</body>
 <!--   Core JS Files   -->
 <script src="{{ asset('now-ui-kit-v1.1.0/assets/js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('now-ui-kit-v1.1.0/assets/js/core/popper.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('now-ui-kit-v1.1.0/assets/js/core/bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('now-ui-kit-v1.1.0/assets/js/now-ui-kit.js') }}" type="text/javascript"></script>
-</body>
 </html>

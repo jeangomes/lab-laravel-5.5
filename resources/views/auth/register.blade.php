@@ -67,9 +67,9 @@
                             <label for="name" class="col-md-4 control-label">Data de nascimento</label>
 
                             <div class="col-md-6">
-                                <input id="birth_date" type="text" 
+                                <input id="birth_date" type="text"
                                        ui-mask="99/99/9999"
-                                       ng-model="birth_dt"  
+                                       ng-model="birth_dt"
                                        ng-init="birth_dt='{{ old('birth_date','') }}'"
                                        
                                        class="form-control" 
@@ -90,9 +90,9 @@
 
                             <div class="col-md-6">
                                 <input id="cellphone" 
-                                       type="text" 
+                                       type="text"
                                        ui-mask="(99) 9?9999-9999"
-                                       ng-model="cellphone"  
+                                       ng-model="cellphone"
                                        ng-init="cellphone='{{ old('cellphone','') }}'"
                                        
                                        class="form-control" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"

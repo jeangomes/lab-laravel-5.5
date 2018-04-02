@@ -15,17 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/upload', 'FileController@upload');
-Route::post('/upload', 'FileController@move');
+//Route::get('/upload', 'FileController@upload');
+//Route::post('/upload', 'FileController@move');
 
-Auth::routes(); 
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::resource('membros', 'UserController');
+    //Route::resource('membros', 'UserController');
     Route::resource('produto', 'ProductController');
-    Route::resource('evento', 'EventController');    
+});
+Route::group(['prefix' => 'admin','namespace' => 'Adm'], function() {
+    Route::resource('evento', 'EventController');
+    Route::resource('membros', 'UserController');
 });
 Route::resource('pedido', 'PurchaseController');
 Route::resource('amigo-oculto', 'AmigoOcultoController');
