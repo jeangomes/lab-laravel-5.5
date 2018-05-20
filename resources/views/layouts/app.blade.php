@@ -29,16 +29,11 @@
         }
     </style>
 </head>
-<body class="template-page sidebar-collapse">
+<body class="index-page sidebar-collapse">
 <!-- Navbar -->
 @include('layouts.navbar')
 <!-- End Navbar -->
 <div class="wrapper" id="app">
-    <h1 hidden>@yield('title')</h1>
-    <div class="page-header" hidden>
-               <div class="page-header-image hide" data-parallax="true" style="background-image: ;">
-                </div>
-    </div>
     <div class="section">
         @if (session('aviso'))
             <div class="alert alert-{{session('type')}} alert-dismissible">

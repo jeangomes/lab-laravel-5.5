@@ -54,7 +54,7 @@ class EventController extends Controller
         $event->what_is_not_included = $request->what_is_not_included;
 
         $event->save();
-        dd($event);
+        //dd($event);
     }
 
     /**

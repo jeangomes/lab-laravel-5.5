@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class UserCreated extends Notification
 {
@@ -35,7 +36,12 @@ class UserCreated extends Notification
     
     public function toTelegram()
     {
-        $url = 'https://integram.org/c0yciNXebPH';
+        Telegram::sendMessage([
+            'chat_id' => env('GROUP_ID'),
+            'text' => $this->my_notification
+        ]);
+
+/*        $url = 'https://integram.org/c0yciNXebPH';
         $data = array('text' => 'Olá Admin Caveiras, são: ' . date('d/m/Y H:i') . ' <br>' . $this->my_notification);
         $options = array(
             'http' => array(
@@ -46,7 +52,7 @@ class UserCreated extends Notification
         );
 
         $context = stream_context_create($options);
-        return file_get_contents($url, false, $context);
+        return file_get_contents($url, false, $context);*/
     }
 
     /**

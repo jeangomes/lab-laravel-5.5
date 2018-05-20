@@ -2,8 +2,7 @@
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="{{ url('/') }}">
-                Caveiras
-                <img hidden style="height: inherit;" src="{{ asset('images/logo-header.png') }}">
+                <img style="height: inherit;" src="{{ asset('images/logo-header.png') }}">
             </a>
             <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                     aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,9 +12,44 @@
             </button>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navigation"
-             data-nav-image="../assets/img/blurred-image-1.jpg">
+             data-nav-image="{{asset('now-ui-kit-v1.1.0/assets/img/blurred-image-1.jpg')}}">
             <ul class="navbar-nav">
                 @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/') }}">
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <p>Quem Somos</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <p>O que fazemos</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <p>Últimos Eventos</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('agenda') }}">
+                            <p>Agenda</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <p>Blog</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <p>Contato</p>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">
                             <p>Login</p>
@@ -44,17 +78,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('pedido.index') }}">Encomendas</a>
                     </li>
-                    @if (Auth::user()->admin)
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('membros.index') }}">Membros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('evento.index') }}">Eventos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('produto.index') }}">Produtos</a>
-                        </li>
-                    @endif
 
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
@@ -75,13 +98,6 @@
                     </li>
                 @endguest
 
-                <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom"
-                       href="https://twitter.com/CreativeTim" target="_blank">
-                        <i class="fa fa-twitter"></i>
-                        <p class="d-lg-none d-xl-none">Twitter</p>
-                    </a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom"
                        href="https://www.facebook.com/CreativeTim" target="_blank">

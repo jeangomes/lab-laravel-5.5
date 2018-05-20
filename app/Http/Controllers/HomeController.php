@@ -13,7 +13,11 @@ class HomeController extends Controller {
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth', ['except' => ['welcome']]);
+        $this->middleware('auth', ['except' => ['welcome','index']]);
+    }
+
+    public function index(Request $request) {
+        return view('welcome');
     }
 
     /**
@@ -21,7 +25,7 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) {
+    public function home(Request $request) {
 //        activity()
 //                ->withProperties(['ip' => $request->ip(), 'ua' => $request->header('User-Agent')])
 //                ->log('Café com pão');

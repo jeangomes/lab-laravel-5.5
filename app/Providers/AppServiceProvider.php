@@ -8,6 +8,8 @@ use Faker\Factory as FakerFactory;
 use Illuminate\Support\Facades\Route;
 use App\Purchase;
 use App\Observers\PurchaseObserver;
+use App\Event;
+use App\Observers\EventObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
         ]);
         
         Purchase::observe(PurchaseObserver::class);
+        Event::observe(EventObserver::class);
     }
 
     /**

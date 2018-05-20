@@ -11,16 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Route::get('/', 'HomeController@index')->name('initial');
 //Route::get('/upload', 'FileController@upload');
 //Route::post('/upload', 'FileController@move');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@home')->name('home');
+//Route::get('/agenda', 'AgendaController@index')->name('agenda');
 
 Route::group(['prefix' => 'admin'], function() {
     //Route::resource('membros', 'UserController');
