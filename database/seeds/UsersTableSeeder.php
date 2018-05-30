@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder {
         //$user->options = ['name'=>'gomes'];
         $user->password = bcrypt(123456);
         $user->birth_date = '1990-08-11';
-        //$user->save();
+        $user->save();
 
         factory(User::class, 15)->create();
     }

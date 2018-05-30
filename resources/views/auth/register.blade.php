@@ -12,13 +12,13 @@
                             <h4 class="title title-up">Cadastro</h4>
                             <div class="social-line">
                                 <a href="#pablo" class="btn btn-neutral btn-google btn-icon btn-round">
-                                    <i class="fa fa-facebook-square"></i>
+                                    <i class="fa fa-google"></i>
                                 </a>
                                 <a href="#pablo" class="btn btn-neutral btn-facebook btn-icon btn-lg btn-round">
-                                    <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-facebook-square"></i>
                                 </a>
                                 <a href="#pablo" class="btn btn-neutral btn-twitter btn-icon btn-round">
-                                    <i class="fa fa-google-plus"></i>
+                                    <i class="fa fa-twitter"></i>
                                 </a>
                             </div>
                         </div>

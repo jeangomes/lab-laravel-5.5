@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('agenda') }}">
+                        <a class="nav-link" href="{{ route('login') }}">
                             <p>Agenda</p>
                         </a>
                     </li>
