@@ -6,9 +6,8 @@
             <thead>
             <tr>
                 <th>N.:</th>
-                <th>Name</th>
-                <th>City/State</th>
-                <th>Profissão</th>
+                <th>Nome</th>
+                <th>RG</th>
                 <th>Nascimento</th>
                 <th>Nível</th>
                 <th>Ações</th>
@@ -18,7 +17,6 @@
                 <tr class="{{$loop->index % 2 ? 'bg':''}}">
                     <td>{{$loop->index + 1}}</td>
                     <td>{{$result->id}} - {{$result->name}}</td>
-                    <td>{{$result->city}}/{{$result->state}}</td>
                     <td></td>
                     <td>{{$result->birth_date->format('d/m/Y')}} - {{$result->birth_date->diffForHumans()}}</td>
                     <td>-</td>

@@ -15,13 +15,14 @@
     <!-- Styles -->
     <link href="{{ asset('now-ui-kit-v1.1.0/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('now-ui-kit-v1.1.0/assets/css/now-ui-kit.css') }}" rel="stylesheet">
+    <link href="{{ asset('now-ui-kit-v1.1.0/assets/css/demo.css') }}" rel="stylesheet">
     <link href="{{ asset('images/favicon.ico') }}" rel="icon" type="image/x-icon"/>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    {{--<script src="{{ asset('js/app.js') }}"></script>--}}
+    {{--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>--}}
 
-    <script src="{{ asset('js/bower_components/angular-ui-mask/dist/mask.js') }}"></script>
-    <script src="{{ asset('js/init.js') }}"></script>
+    {{--<script src="{{ asset('js/bower_components/angular-ui-mask/dist/mask.js') }}"></script>--}}
+    {{--<script src="{{ asset('js/init.js') }}"></script>--}}
     <style type="text/css">
         .form-group.required .control-label:after {
             content: " *";
@@ -29,12 +30,12 @@
         }
     </style>
 </head>
-<body class="index-page sidebar-collapse">
+<body class="landing-page sidebar-collapse">
 <!-- Navbar -->
 @include('layouts.navbar')
 <!-- End Navbar -->
 <div class="wrapper" id="app">
-    <div class="section">
+
         @if (session('aviso'))
             <div class="alert alert-{{session('type')}} alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -55,7 +56,7 @@
         @if (isset($results))
 
         @endif
-    </div>
+
     @include('layouts.footer')
 </div>
 <!--   Core JS Files   -->

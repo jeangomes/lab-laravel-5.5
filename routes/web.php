@@ -10,26 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 Route::get('/', 'HomeController@index')->name('initial');
+
 //Route::get('/upload', 'FileController@upload');
 //Route::post('/upload', 'FileController@move');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@home')->name('home');
-//Route::get('/agenda', 'AgendaController@index')->name('agenda');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin'], function() {
-    //Route::resource('membros', 'UserController');
-    Route::resource('produto', 'ProductController');
-});
 Route::group(['prefix' => 'admin','namespace' => 'Adm'], function() {
     Route::resource('evento', 'EventController');
     Route::resource('membros', 'UserController');
+    Route::resource('produto', 'ProductController');
+    Route::get('/home', 'HomeController@index')->name('dash');
 });
 Route::resource('pedido', 'PurchaseController');
 Route::resource('amigo-oculto', 'AmigoOcultoController');
+

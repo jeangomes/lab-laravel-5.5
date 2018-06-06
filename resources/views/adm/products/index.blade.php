@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('adm.layouts.adm')
 @section('title', 'Produtos - Listar')
 @section('content')
-    <div>Mostrando {{($products->currentpage()-1)*$products->perpage()+1}} 
-        a {{$products->currentpage()*$products->perpage()}}
-        de  {{$products->total()}} registros
+    <br>
+    <div class="pull-right">
+        <a class="btn btn-dark" href="{{ route('produto.create') }}">Cadastrar novo produto</a>
     </div>
-    <a href="{{ route('produto.create') }}">Incluir novo</a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -15,7 +14,7 @@
                 <th>Ações</th>
             </tr>
         </thead>
-        @foreach($products as $product)
+        @foreach($results as $product)
         <tr class="{{$loop->index % 2 ? 'bg-warning':''}}">
             <td>{{$product->id}}</td>
             <td>{{$product->name}}</td>
@@ -27,7 +26,4 @@
         </tr>
         @endforeach
     </table>
-    <div class="text-center">
-        {{$products->links()}}
-    </div>
 @stop

@@ -13,7 +13,7 @@
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
-
+    <link href="{{ asset('images/favicon.ico') }}" rel="icon" type="image/x-icon"/>
 
     <!-- Bootstrap core CSS     -->
     <link href="{{ asset('paper/assets/css/bootstrap.min.css') }}" rel="stylesheet"/>
@@ -43,24 +43,77 @@
 
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                <a href="{{ route('dash') }}" class="simple-text">
+                    ADM - Caveiras {{auth()->user()->admin}}
                 </a>
             </div>
-
             <ul class="nav">
-                <li class="active">
-                    <a href="dashboard.html">
-                        <i class="ti-pie-chart"></i>
-                        <p>Dashboard</p>
-                    </a>
+                @if(auth()->user()->admin)
+                    <li class="{{Route::currentRouteName()==='dash'?'active':''}}">
+                        <a href="{{ route('dash') }}">
+                            <i class="ti-pie-chart"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="{{Route::currentRouteName()==='evento.index'?'active':''}}">
+                        <a href="{{ route('evento.index') }}">
+                            <i class="ti-calendar"></i>
+                            <p>Eventos</p>
+                        </a>
+                    </li>
+                    <li class="{{Route::currentRouteName()==='membros.index'?'active':''}}">
+                        <a href="{{ route('membros.index') }}">
+                            <i class="ti-user"></i>
+                            <p>Membros</p>
+                        </a>
+                    </li>
+
+                    <li class="{{Route::currentRouteName()==='produto.index'?'active':''}}">
+                        <a href="{{ route('produto.index') }}">
+                            <i class="ti-tablet"></i>
+                            <p>Produtos</p>
+                        </a>
+                    </li>
+                    <li class="{{Route::currentRouteName()==='pedido.index'?'active':''}}">
+                        <a href="{{ route('pedido.index') }}">
+                            <i class="ti-shopping-cart-full"></i>
+                            <p>Pedidos</p>
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a href="{{ route('membros.index') }}">
+                            <i class="ti-id-badge"></i>
+                            <p>Parcerias</p>
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a href="{{ route('membros.index') }}">
+                            <i class="ti-list"></i>
+                            <p>Relatórios</p>
+                        </a>
+                    </li>
+                @endif
+                <li>
+                    <a href="{{ route('pedido.index') }}"><p>Histórico de Eventos</p></a>
                 </li>
                 <li>
-                    <a href="{{ route('evento.index') }}">
-                        <i class="ti-calendar"></i>
-                        <p>Eventos</p>
-                    </a>
+                    <a href="{{ route('pedido.create') }}"><p>Fazer encomenda</p></a>
                 </li>
+                <li>
+                    <a href="{{ route('pedido.index') }}"><p>Encomendas</p></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Amigo Oculto <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{route('amigo-oculto.create')}}">Participar</a>
+                        <a class="dropdown-item" href="{{route('amigo-oculto.index')}}">Lista de participantes</a>
+                    </div>
+                </li>
+
 
             </ul>
         </div>
@@ -80,7 +133,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <li class="hide">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="ti-panel"></i>
                                 <p>Stats</p>
@@ -88,9 +141,30 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="ti-user"></i>
+                                <p class="notification"></p>
+                                <p>{{ Auth::user()->name }}</p>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                                        Desconectar
+                                    </a>
+                                </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="ti-bell"></i>
                                 <p class="notification">5</p>
-                                <p>Notifications</p>
+                                <p>Notificações</p>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -104,7 +178,7 @@
                         <li>
                             <a href="#">
                                 <i class="ti-settings"></i>
-                                <p>Settings</p>
+                                <p>Configurações</p>
                             </a>
                         </li>
                     </ul>
@@ -118,16 +192,18 @@
             <div class="container-fluid">
                 <div class="row">
                     @if (isset($results))
-                        @if($results->lastPage()>1)
-                            <div class="alert alert-info">
-                                <p>
-                                    Registros {{ $results->firstItem() }} - {{ $results->lastItem() }}
-                                    de {{ $results->total() }} (para a página {{ $results->currentPage() }} )
-                                </p>
-                            </div>
-                        @endif
+                        {{--@if($results->lastPage()>1)--}}
+                        <div class="alert alert-info">
+                            <p>
+                                Registros {{ $results->firstItem() }} - {{ $results->lastItem() }}
+                                de {{ $results->total() }} (para a página {{ $results->currentPage() }} )
+                            </p>
+                        </div>
+
                     @endif
-                    @yield('content')
+                    <div class="{{Route::currentRouteName()==='dash'?'':'card'}}">
+                        @yield('content')
+                    </div>
                     @if (isset($results))
                         <div class="text-center box-footer">
                             {{$results->appends(request()->query())->links()}}
@@ -140,22 +216,22 @@
 
         <footer class="footer">
             <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
+                {{--                <nav class="pull-left">
+                                    <ul>
 
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="copyright pull-right">
-                    &copy;
-                    <script>document.write(new Date().getFullYear())</script>
-                    , made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative
-                        Tim</a>
-                </div>
+                                        <li>
+                                            <a href="#">
+                                                Home
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="copyright pull-right">
+                                    &copy;
+                                    <script>document.write(new Date().getFullYear())</script>
+                                    , made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative
+                                        Tim</a>
+                                </div>--}}
             </div>
         </footer>
 
