@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/bot-skull', 'HomeController@botSkull');
 Route::get('/', 'HomeController@index')->name('initial');
 
 //Route::get('/upload', 'FileController@upload');
