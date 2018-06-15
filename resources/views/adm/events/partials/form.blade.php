@@ -39,6 +39,6 @@
     {{ Form::bsSelect('level',['L' => 'Leve', 'M' => 'Moderado','D'=>'Difícil'],null,['label'=>'Classificação/Esforço']) }}
 </div>
 <div class="form-group">
-    {{ Form::iCheckRadio('status','Status',['Ativa'=>1,'Inativa'=>0]) }}
+    {{ Form::iCheckRadio('status','Status',['Ativo'=>1,'Inativo'=>0]) }}
 </div>
 
