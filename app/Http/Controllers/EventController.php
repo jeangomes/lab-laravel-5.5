@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller {
     
     public function __construct() {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -17,7 +19,22 @@ class EventController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
+        if(Auth::check()){
+            $eventot = Event::with('customers')->find(9);
+            $ret = array_values($eventot->relationsToArray());
 
+            $func = function($n) {
+                $dicas = DB::table('event_user_tips')->select('gift_tip')
+                    ->where('event_user_id', $n['participation_id'])->get();
+                $n['dicas'] = $dicas;
+                return $n;
+            };
+
+            $evento = array_map($func, $ret[0]);
+
+            return view('membro.event.show')->with(compact('evento'));
+        }
+        return view('site.agenda');
     }
 
     /**
@@ -26,7 +43,12 @@ class EventController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        $participation = $users = DB::table('event_user')->where([
+            ['user_id', '=', Auth::id()],
+            ['event_id', '=', '9'],
+        ])->limit(1)->get();
+        $participation_id = isset($participation[0]) ? $participation[0]->id : null;
+        return view('amigo-oculto.entrar')->with(compact('participation_id'));
     }
 
     /**

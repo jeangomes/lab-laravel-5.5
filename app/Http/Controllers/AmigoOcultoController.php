@@ -21,19 +21,7 @@ class AmigoOcultoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $eventot = Event::with('customers')->find(9);
-        $ret = array_values($eventot->relationsToArray());
 
-        $func = function($n) {
-            $dicas = DB::table('event_user_tips')->select('gift_tip')
-                            ->where('event_user_id', $n['participation_id'])->get();
-            $n['dicas'] = $dicas;
-            return $n;
-        };
-
-        $evento = array_map($func, $ret[0]);
-
-        return view('membro.event.show')->with(compact('evento'));
     }
 
     /**
@@ -42,12 +30,7 @@ class AmigoOcultoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $participation = $users = DB::table('event_user')->where([
-                    ['user_id', '=', Auth::id()],
-                    ['event_id', '=', '9'],
-                ])->limit(1)->get();
-        $participation_id = isset($participation[0]) ? $participation[0]->id : null;
-        return view('amigo-oculto.entrar')->with(compact('participation_id'));
+
     }
 
     /**

@@ -6,7 +6,7 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EventController extends Controller
+class EventController extends AdmController
 {
     /**
      * Display a listing of the resource.
@@ -46,6 +46,7 @@ class EventController extends Controller
         $event->start_date = $request->start_date;
         $event->final_date = $request->final_date;
         $event->description = $request->description;
+        $event->payment_deadline = $request->payment_deadline;
         $event->meeting_point = $request->meeting_point;
         $event->meeting_point_map = $request->meeting_point;
         $event->equipment = $request->equipment;
