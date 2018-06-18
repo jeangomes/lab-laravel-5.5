@@ -19,7 +19,7 @@ class FormServiceProvider extends ServiceProvider {
         Form::component('bsSelect', 'components.form.select', ['name', 'items' => [], 'value' => null, 'attributes' => []]);
         Form::component('bsDate', 'components.form.date', ['name', 'value' => null, 'attributes' => []]);
         Form::component('iCheckRadio', 'components.form.radio', ['name', 'label', 'attributes' => []]);
-        //Form::component('bsNumber', 'components.form.number', ['name', 'value' => null, 'attributes' => []]);
+        Form::component('bsNumber', 'components.form.number', ['name', 'value' => null, 'attributes' => []]);
 
 
 //        Form::component('bsEmail', 'utils.components.form.email', ['name', 'label' => null, 'value' => null, 'attributes' => []]);        

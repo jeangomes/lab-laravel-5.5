@@ -18,19 +18,12 @@ use App\Notifications\UserCreated;
  */
 class EventObserver {
 
-    /**
-     * Listen to the Event created event.
-     *
-     * @param  \App\User  $event
-     * @return void
-     */
-    public function created(Event $event) {
-        //dd($event);
-        $chamada = "💀💀💀💀💀💀💀💀
+    protected function makeAd($event){
+        return "💀💀💀💀💀💀💀💀
  
 $event->title
 
-📆 DATA: 17.03.2018
+📆 DATA: $event->start_date
 🚌 TRANSPORTE
 💰VALOR: R$ $event->price
 
@@ -55,7 +48,18 @@ SOLICITAR ADMIN NO PRIVADO.
 
 Transporte: $event->price
 
-DATA LIMITE DE PAGAMENTO: dd/mm/YYYY";
+DATA LIMITE DE PAGAMENTO: ".$event->payment_deadline->format('d/m/Y');
+    }
+
+    /**
+     * Listen to the Event created event.
+     *
+     * @param  \App\User  $event
+     * @return void
+     */
+    public function created(Event $event) {
+        $chamada = $this->makeAd($event);
+        dd($chamada);
         $event->notify(
                 new UserCreated("Novo evento cadastrado: " . $event->id)
         );
