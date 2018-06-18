@@ -21,7 +21,7 @@
 </div>
 
 <div class="form-group">
-    {{ Form::bsText('meeting_point',null,['required'=>true,'label'=>'Ponto de Encontro']) }}
+    {{ Form::bsText('meeting_point','Posto Shell próximo a Rodoviária Novo Rio',['required'=>true,'label'=>'Ponto de Encontro']) }}
 </div>
 
 <div class="form-group">

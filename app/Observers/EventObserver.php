@@ -23,20 +23,29 @@ class EventObserver {
  
 $event->title
 
-📆 DATA: $event->start_date
+📆 DATA: ".$event->start_date->format('d/m/Y')."
 🚌 TRANSPORTE
 💰VALOR: R$ $event->price
 
-➡ IDA: $event->start_date Saída RJ: 04 h 
-⬅ RETORNO: $event->final_date previsto às 17:00
+➡ IDA: ".$event->start_date->format('d/m/Y')." Saída RJ: 04 h 
+⬅ RETORNO: ".$event->final_date->format('d/m/Y')." previsto às 17:00
 🚩 LOCAL DE ENCONTRO: $event->meeting_point
 
 ⛰DESCRIÇÃO DA ATIVIDADE/TRILHA:
 
 $event->description
 
-DIFICULDADE: MODERADA/SUPERIOR - 11KM
-Duração média: 7 horas
+✅ Está incluso:
+$event->what_is_included
+
+⛔️ Não está incluso:
+$event->what_is_not_included
+
+☂️ Equipamentos recomendados:
+$event->equipment
+
+🍞 Alimentos recomendados:
+$event->food
 
 🏦DADOS BANCÁRIOS 🏦
 
@@ -48,7 +57,18 @@ SOLICITAR ADMIN NO PRIVADO.
 
 Transporte: $event->price
 
-DATA LIMITE DE PAGAMENTO: ".$event->payment_deadline->format('d/m/Y');
+DATA LIMITE DE PAGAMENTO: ".$event->payment_deadline->format('d/m/Y').
+
+"
+
+💀ORGANIZAÇÃO☠. 
+💀 Nome do ADM
+(21) Telefone do ADM
+
+❗ATENÇÃO: Este evento não tem fins lucrativos e não somos guias, mas apenas um grupo de amigos se reunindo para a atividade. Sua segurança e seu bem-estar são sua responsabilidade.
+
+💀💀💀💀💀💀
+";
     }
 
     /**
@@ -59,7 +79,7 @@ DATA LIMITE DE PAGAMENTO: ".$event->payment_deadline->format('d/m/Y');
      */
     public function created(Event $event) {
         $chamada = $this->makeAd($event);
-        dd($chamada);
+        //dd($chamada);
         $event->notify(
                 new UserCreated("Novo evento cadastrado: " . $event->id)
         );
