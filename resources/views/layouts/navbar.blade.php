@@ -33,11 +33,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">
+                    <a class="nav-link" href="{{ route('somos') }}">
                         Quem Somos
                     </a>
                 </li>
-                <li class="nav-item">
+                <li hidden class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">
                         O que fazemos
                     </a>
@@ -48,17 +48,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">
+                    <a class="nav-link" href="{{ route('agenda') }}">
                         Agenda
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">
+                    <a class="nav-link" href="{{ route('blog') }}">
                         Blog
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">
+                    <a class="nav-link" href="{{ route('contato') }}">
                         Contato
                     </a>
                 </li>

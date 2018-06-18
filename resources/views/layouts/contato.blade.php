@@ -30,7 +30,7 @@
         }
     </style>
 </head>
-<body class="landing-page sidebar-collapse">
+<body class="contact-page sidebar-collapse">
 <!-- Navbar -->
 @include('layouts.navbar')
 <!-- End Navbar -->

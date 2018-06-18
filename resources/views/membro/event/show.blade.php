@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adm.layouts.adm')
 @section('content')
     <div class="page-header">
         <h1>Amigo Oculto em Alagoa  - Participantes</h1>

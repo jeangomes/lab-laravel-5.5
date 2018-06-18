@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="section section-signup"
-         style="background-image: url('{{ asset('now-ui-kit-v1.1.0/assets/img/bg11.jpg') }}'); background-size: cover; background-position: top center; min-height: 700px;">
+         style="background-image: url('{{ asset('now-ui-kit-v1.1.0/assets/img/IMG_3427.JPG') }}'); background-size: cover; background-position: top center; min-height: 700px;">
         <div class="container">
             <div class="row">
                 <div class="card card-signup" data-background-color="black">
                     <form class="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
-                        <div class="header text-center">
+                        <div class="header text-center" style="height: auto;">
                             <h4 class="title title-up">Cadastro</h4>
                             <div class="social-line">
                                 <a href="#pablo" class="btn btn-neutral btn-google btn-icon btn-round">

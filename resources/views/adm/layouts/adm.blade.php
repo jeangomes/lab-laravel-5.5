@@ -93,6 +93,18 @@
                         </a>
                     </li>
                 @endif
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="ti-user"></i>
+                        <p class="notification"></p>
+                        <p>Amigo Oculto</p>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('subscribe',9)}}">Participar</a></li>
+                        <li><a href="{{route('amigo-oculto.index')}}">Lista de participantes</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href="{{ route('pedido.index') }}"><p>Histórico de Eventos</p></a>
                 </li>
@@ -102,18 +114,6 @@
                 <li>
                     <a href="{{ route('pedido.index') }}"><p>Encomendas</p></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle"
-                       data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Amigo Oculto <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{route('amigo-oculto.create')}}">Participar</a>
-                        <a class="dropdown-item" href="{{route('amigo-oculto.index')}}">Lista de participantes</a>
-                    </div>
-                </li>
-
 
             </ul>
         </div>
@@ -200,6 +200,16 @@
                             </p>
                         </div>
 
+                    @endif
+
+                    @if(count($errors->all())>0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     @endif
                     <div class="{{Route::currentRouteName()==='dash'?'':'card'}}">
                         @yield('content')

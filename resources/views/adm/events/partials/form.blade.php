@@ -2,7 +2,7 @@
     {{ Form::bsText('title',null,['required'=>true,'label'=>'Título']) }}
 </div>
 <div class="form-group">
-    {{ Form::bsText('vacancy',null,['required'=>true,'label'=>'Qtd de Vagas']) }}
+    {{ Form::bsNumber('vacancy',null,['required'=>true,'label'=>'Qtd de Vagas']) }}
 </div>
 <div class="form-group">
     {{ Form::bsText('price',null,['required'=>true,'label'=>'Valor Total']) }}
@@ -14,6 +14,10 @@
 
 <div class="form-group">
     {{ Form::bsTextarea('description',null,['required'=>true,'label'=>'Descrição']) }}
+</div>
+
+<div class="form-group">
+    {{ Form::bsDate('payment_deadline',null,['required'=>true,'col'=>4,'label'=>'Prazo de Pagamento']) }}
 </div>
 
 <div class="form-group">
