@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration {
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->decimal('price', 10, 2);
+            $table->date('payment_deadline')->nullable();
             $table->dateTime('start_date');
             $table->dateTime('final_date');
             //boarding time, situation, level, type

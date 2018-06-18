@@ -18,9 +18,16 @@ Route::get('/', 'HomeController@index')->name('initial');
 
 Auth::routes();
 Route::get('/home', 'HomeController@home')->name('home');
-//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin','namespace' => 'Adm'], function() {
+Route::get('/quem-somos', 'HomeController@quemSomos')->name('somos');
+Route::get('/galeria', 'HomeController@galeria')->name('galeria');
+Route::get('/agenda', 'EventController@index')->name('agenda');
+Route::get('/blog', 'HomeController@blog')->name('blog');
+Route::get('/contato', 'ContatoController@index')->name('contato');
+
+Route::get('/evento/participar/{id}', 'EventController@create')->name('subscribe');
+
+Route::group(['prefix' => 'admin','namespace' => 'Adm','middleware'=>'admin'], function() {
     Route::resource('evento', 'EventController');
     Route::resource('membros', 'UserController');
     Route::resource('produto', 'ProductController');
