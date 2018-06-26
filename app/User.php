@@ -45,4 +45,10 @@ class User extends Authenticatable {
         $this->notify(new Notifications\MailResetPasswordNotification($token));
     }
 
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
+
+
 }

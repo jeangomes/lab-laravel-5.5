@@ -6,6 +6,17 @@
         <div class="container">
             <div class="col-md-4 content-center">
                 <div class="card card-login card-plain">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    @if (session('warning'))
+                        <div class="alert alert-warning">
+                            {{ session('warning') }}
+                        </div>
+                    @endif
+
                     <form class="form" method="POST" action="{{ route('login') }}">
                         <div class="header header-primary text-center">
                             <div class="logo-container">

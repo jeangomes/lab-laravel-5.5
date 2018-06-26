@@ -80,12 +80,12 @@ DATA LIMITE DE PAGAMENTO: ".$event->payment_deadline->format('d/m/Y').
     public function created(Event $event) {
         $chamada = $this->makeAd($event);
         //dd($chamada);
-        $event->notify(
+/*        $event->notify(
                 new UserCreated("Novo evento cadastrado: " . $event->id)
         );
         $event->notify(
             new UserCreated($chamada)
-        );
+        );*/
     }
 
     public function deleting(Event $event) {
