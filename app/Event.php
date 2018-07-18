@@ -19,6 +19,8 @@ class Event extends Model
         'payment_deadline'
     ];
 
+    protected $with = ['customers'];
+
     //
     public function customers()
     {
@@ -30,7 +32,7 @@ class Event extends Model
 
     public function getHasVacancyAttribute()
     {
-        return $this->vacancy - $this->customers()->count();
+        return $this->vacancy - $this->customers->count();
     }
 
 }

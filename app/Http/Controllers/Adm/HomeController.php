@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Adm;
 
+use App\Filters\EventFilters;
+use App\Repositories\EventRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,13 +23,12 @@ class HomeController extends AdmController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) {
+    public function index(Request $request, EventRepository $eventRepository, EventFilters $eventFilters) {
 //        activity()
 //                ->withProperties(['ip' => $request->ip(), 'ua' => $request->header('User-Agent')])
 //                ->log('Café com pão');
-        $user = Auth::user();
-//        var_dump($user->id);
-        return view('adm.index');
+        $events = $eventRepository->getEvents($eventFilters);
+        return view('adm.index')->with(compact('events'));
     }
 
 }

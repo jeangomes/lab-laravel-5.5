@@ -1,110 +1,45 @@
 @extends('adm.layouts.adm')
 @section('content')
     <div class="container-fluid">
-        <div class="row">
-            <h4>Próximos Eventos</h4>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="icon-big icon-warning text-center">
-                                    <i class="ti-bag"></i>
+
+        <h4>Próximos Eventos</h4>
+        @foreach($events->chunk(4) as $e)
+            <div class="row">
+                @foreach($e as $event)
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="icon-big icon-warning text-center">
+                                            <i class="ti-calendar"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <div class="numbers">
+                                            <p>{{$event->title}}<br>
+                                                {{$event->start_date->diffForHumans()}}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-7">
-                                <div class="numbers">
-                                    <p>Alambari</p>
-                                    10 dias
+                                <div class="footer">
+                                    <p>Data: {{$event->start_date->format('d/m/Y')}}</p>
+                                    <p>Vagas: {{$event->vacancy}} | Ocupadas: {{$event->customers->count()}} |
+                                        Restantes: {{$event->has_vacancy}}</p>
+                                    <hr/>
+                                    <div class="stats">
+                                        <a href="{{ route('evento.show',$event->id) }}"><i class="ti-search"></i>
+                                            Visualizar
+                                            participantes</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <p>Vagas: 15 | Ocupadas: 10 | Restantes: 5</p>
-                            <hr/>
-                            <div class="stats">
-                                <i class="ti-search"></i> Visualizar participantes
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="icon-big icon-success text-center">
-                                    <i class="ti-location-pin"></i>
-                                </div>
-                            </div>
-                            <div class="col-xs-7">
-                                <div class="numbers">
-                                    <p>Ibitipoca</p>
-                                    15 dias
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <hr/>
-                            <div class="stats">
-                                <i class="ti-search"></i> Visualizar participantes
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="icon-big icon-danger text-center">
-                                    <i class="ti-map-alt"></i>
-                                </div>
-                            </div>
-                            <div class="col-xs-7">
-                                <div class="numbers">
-                                    <p>Ilha Grande</p>
-                                    20 dias
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <hr/>
-                            <div class="stats">
-                                <i class="ti-search"></i> Visualizar participantes
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="icon-big icon-info text-center">
-                                    <i class="ti-world"></i>
-                                </div>
-                            </div>
-                            <div class="col-xs-7">
-                                <div class="numbers">
-                                    <p>Lapinha X Tabuleiro</p>
-                                    45 dias
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <hr/>
-                            <div class="stats">
-                                <i class="ti-search"></i> Visualizar participantes
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
+
         <div class="row">
 
             <div class="col-md-12">

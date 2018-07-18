@@ -57,7 +57,12 @@ class EventController extends AdmController
         $event->what_is_not_included = $request->what_is_not_included;
 
         $event->save();
-        //dd($event);
+
+        return redirect()->route('evento.index')
+            ->with([
+                'aviso' => 'Evento cadastrado com sucesso.',
+                'type' => 'success'
+            ]);
     }
 
     /**
@@ -101,9 +106,17 @@ class EventController extends AdmController
      *
      * @param  \App\Event $event
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
-    public function destroy(Event $event)
+    public function destroy(Event $evento)
     {
-        //
+        if ($evento->delete()) {
+            return redirect()->route('evento.index')->with(
+                [
+                    'aviso' => 'Evento deletado.',
+                    'type' => 'info'
+                ]
+            );
+        }
     }
 }

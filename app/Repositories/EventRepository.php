@@ -14,8 +14,8 @@ class EventRepository extends BaseRepository
     {
         $query = $this->newQuery();
         //$query->orderByRaw('data_extrato IS NULL DESC');
-        $query->orderBy('start_date', 'DESC');
-        return $query->select('title', 'start_date', 'id',
+        $query->orderBy('start_date');
+        return $query->select('title', 'start_date', 'id','vacancy',
             'description','picture','type')
             ->filter($filters)
             //->whereNull('transfer_id')

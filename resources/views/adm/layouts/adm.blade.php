@@ -191,6 +191,12 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    @if (session('aviso'))
+                        <div class="alert alert-{{session('type')}}">
+                            <button type="button" aria-hidden="true" class="close">×</button>
+                            <span>{{ session('aviso') }}</span>
+                        </div>
+                    @endif
                     @if (isset($results))
                         {{--@if($results->lastPage()>1)--}}
                         <div class="alert alert-info">
@@ -265,7 +271,7 @@
 <script src="{{ asset('paper/assets/js/bootstrap-notify.js') }}"></script>
 
 <!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
 
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="{{ asset('paper/assets/js/paper-dashboard.js') }}"></script>

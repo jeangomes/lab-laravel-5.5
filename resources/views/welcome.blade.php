@@ -64,16 +64,17 @@
         </div>
         <div class="section section-team text-center">
             <div class="container">
-                <h2 class="title">Here is our team</h2>
+                <h2 class="title">Depoimentos</h2>
                 <div class="team">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="team-player">
                                 <img src="../assets/img/avatar.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                                <h4 class="title">Romina Hadid</h4>
-                                <p class="category text-primary">Model</p>
-                                <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                                <h4 class="title">Fulano da Silva</h4>
+                                <p class="category text-primary">Espontaneo</p>
+                                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
+                                    Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.
+                                    </p>
                                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
                                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-instagram"></i></a>
                                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-facebook-square"></i></a>
@@ -82,10 +83,10 @@
                         <div class="col-md-4">
                             <div class="team-player">
                                 <img src="../assets/img/ryan.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                                <h4 class="title">Ryan Tompson</h4>
-                                <p class="category text-primary">Designer</p>
-                                <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                                <h4 class="title">Ciclano Alves</h4>
+                                <p class="category text-primary">Sincera</p>
+                                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
+                                    Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.</p>
                                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
                                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-linkedin"></i></a>
                             </div>
@@ -93,10 +94,10 @@
                         <div class="col-md-4">
                             <div class="team-player">
                                 <img src="../assets/img/eva.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                                <h4 class="title">Eva Jenner</h4>
-                                <p class="category text-primary">Fashion</p>
-                                <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                                <h4 class="title">Beltrano Coimbra</h4>
+                                <p class="category text-primary">Ousado</p>
+                                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
+                                    Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.</p>
                                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-google-plus"></i></a>
                                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-youtube-play"></i></a>
                                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
@@ -108,8 +109,8 @@
         </div>
         <div class="section section-contact-us text-center">
             <div class="container">
-                <h2 class="title">Want to work with us?</h2>
-                <p class="description">Your project is very important to us.</p>
+                <h2 class="title">Quer se juntar a nós?</h2>
+                <p class="description">Novas pessoas sempre são bem vindas a fazer parte da familia Caveiras da Montanha.</p>
                 <div class="row">
                     <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
                         <div class="input-group input-lg">
