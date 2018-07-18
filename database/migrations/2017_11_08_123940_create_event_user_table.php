@@ -17,6 +17,7 @@ class CreateEventUserTable extends Migration {
             $table->integer('user_id')->unsigned()->index();
             $table->integer('event_id')->unsigned()->index();            
             $table->timestamp('subscribe_date')->useCurrent();
+            //$table->date('payment_deadline')->nullable();
             $table->timestamps();
         });
 

@@ -15,7 +15,7 @@
         @foreach($evento->customers as $customer)
         <tr>
             <td>{{$customer->name}}</td>
-            <td>{{$customer->pivot->subscribe_date}}</td>
+            <td>{{$customer->pivot->subscribe_date->format('d/m/Y H:i')}}</td>
             <td>-</td>
             <td>-</td>
         </tr>

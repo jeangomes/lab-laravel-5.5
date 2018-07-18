@@ -18,7 +18,8 @@
                     <td>{{$loop->index + 1}}</td>
                     <td>{{$result->id}} - {{$result->name}}</td>
                     <td></td>
-                    <td>{{$result->birth_date->format('d/m/Y')}} - {{$result->birth_date->diffForHumans()}}</td>
+                    <td></td>
+                    {{--<td>{{$result->birth_date->format('d/m/Y')}} - {{$result->birth_date->diffForHumans()}}</td>--}}
                     <td>-</td>
                     <td>
                         <a hidden href="{{ route('membros.edit',$result->id) }}" class="btn btn-default">editar</a>

@@ -26,9 +26,9 @@ class LogRegisteredUser {
      * @return void
      */
     public function handle(Registered $event) {
-        $event->user->notify(
-                new UserCreated("Novo cadastro: " . $event->user->name . ', Id: ' . $event->user->id)
-        );
+//        $event->user->notify(
+//                new UserCreated("Novo cadastro: " . $event->user->name . ', Id: ' . $event->user->id)
+//        );
     }
 
 }

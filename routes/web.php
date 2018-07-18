@@ -13,9 +13,6 @@
 Route::get('/bot-skull', 'HomeController@botSkull');
 Route::get('/', 'HomeController@index')->name('initial');
 
-//Route::get('/upload', 'FileController@upload');
-//Route::post('/upload', 'FileController@move');
-
 Auth::routes();
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('/home', 'HomeController@home')->name('home');
@@ -26,7 +23,9 @@ Route::get('/agenda', 'EventController@index')->name('agenda');
 Route::get('/blog', 'HomeController@blog')->name('blog');
 Route::get('/contato', 'ContatoController@index')->name('contato');
 
-Route::get('/evento/participar/{id}', 'EventController@create')->name('subscribe');
+Route::get('/evento/detalhe/{event}', 'EventController@show')->name('detalhe');
+Route::resource('inscricao', 'EventUserController');
+Route::get('/evento/participar/{event}', 'EventUserController@create')->name('subscribe');
 
 Route::group(['prefix' => 'admin','namespace' => 'Adm','middleware'=>'admin'], function() {
     Route::resource('evento', 'EventController');
@@ -35,5 +34,4 @@ Route::group(['prefix' => 'admin','namespace' => 'Adm','middleware'=>'admin'], f
     Route::get('/home', 'HomeController@index')->name('dash');
 });
 Route::resource('pedido', 'PurchaseController');
-Route::resource('amigo-oculto', 'AmigoOcultoController');
 

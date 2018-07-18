@@ -2,6 +2,9 @@
     {{ Form::bsText('title',null,['required'=>true,'label'=>'Título']) }}
 </div>
 <div class="form-group">
+    {{ Form::file('photo',['required'=>true,'label'=>'Título']) }}
+</div>
+<div class="form-group">
     {{ Form::bsNumber('vacancy',null,['required'=>true,'label'=>'Qtd de Vagas']) }}
 </div>
 <div class="form-group">

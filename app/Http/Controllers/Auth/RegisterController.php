@@ -56,8 +56,8 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:4|confirmed',
-            'birth_date'=>'date_format:d/m/Y|before:today',
-            'nick_name'=>'max:150',
+            //'birth_date'=>'date_format:d/m/Y|before:today',
+            //'nick_name'=>'max:150',
         ]);
     }
 
@@ -87,13 +87,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data) 
     {        
-        $birth_date = implode("-", array_reverse(explode("/", $data['birth_date'])));
+        //$birth_date = implode("-", array_reverse(explode("/", $data['birth_date'])));
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'birth_date' => $birth_date,
-            'cellphone' => $data['cellphone'],
-            'nick_name' => $data['nick_name'],
+            //'birth_date' => $birth_date,
+            //'cellphone' => $data['cellphone'],
+            //'nick_name' => $data['nick_name'],
             'password' => bcrypt($data['password']),
         ]);
 
@@ -101,7 +101,7 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'token' => str_random(40)
         ]);
-        Mail::to($user->email)->send(new VerifyMail($user));
+        //Mail::to($user->email)->send(new VerifyMail($user));
         return $user;
         
     }

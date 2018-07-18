@@ -28,6 +28,7 @@ $factory->define(App\Event::class, function (Faker $faker) {
         'price' => $faker->randomFloat(2, 10, 400),
         'start_date' => $startDate,
         'final_date' => $endDate,
+        'picture'=>'default.jpg',
         'payment_deadline'=>$payment_deadline,
         'description' => $faker->sentence(200),
         'user_id' => $faker->numberBetween(1, 10),

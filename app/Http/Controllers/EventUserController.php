@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\UserCreated;
 
-class AmigoOcultoController extends Controller {
+class EventUserController extends Controller {
 
     public function __construct() {
         $this->middleware('auth');
@@ -29,8 +29,16 @@ class AmigoOcultoController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create(Event $event) {
+        //dd('opa',$event->has_vacancy);
 
+        $participation = $users = DB::table('event_user')->where([
+            ['user_id', '=', Auth::id()],
+            ['event_id', '=', $event->id],
+        ])->limit(1)->get();
+        $participation_id = isset($participation[0]) ? $participation[0]->id : null;
+        return view('membro.event.entrar')
+            ->with(compact('participation_id','event'));
     }
 
     /**
@@ -48,13 +56,10 @@ class AmigoOcultoController extends Controller {
                         'user_id' => Auth::id(),
                         'event_id' => $input['event_id'],
                     ]);
-                    $this->storeTips($id_participacao, $input);
-                } else {
-                    $this->storeTips($input['participation_id'], $input);
                 }
             }
-            Notification::send(null, new UserCreated('Entrou no amigo oculto: ' . Auth::id()));
-            return redirect()->route('amigo-oculto.index')
+            //Notification::send(null, new UserCreated('Entrou no amigo oculto: ' . Auth::id()));
+            return redirect()->route('inscricao.index')
                             ->with([
                                 'aviso' => 'Participação enviada com sucesso.',
                                 'type' => 'success'
@@ -64,7 +69,7 @@ class AmigoOcultoController extends Controller {
         }
     }
 
-    private function storeTips($id_participacao, $input) {
+/*    private function storeTips($id_participacao, $input) {
         DB::table('event_user_tips')
                 ->where('event_user_id', '=', $id_participacao)->delete();
         foreach ($input['dica'] as $key => $value) {
@@ -75,7 +80,7 @@ class AmigoOcultoController extends Controller {
                 ]);
             }
         }
-    }
+    }*/
 
     /**
      * Display the specified resource.

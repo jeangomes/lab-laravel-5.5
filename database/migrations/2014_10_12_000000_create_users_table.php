@@ -16,13 +16,9 @@ class CreateUsersTable extends Migration {
             $table->increments('id');
             $table->string('name', 150);
             $table->string('email')->unique();
+            $table->boolean('admin')->default(0);
             $table->string('password');
             $table->boolean('verified')->default(false);
-            $table->boolean('admin')->default(0);
-            $table->date('birth_date');
-            $table->string('cellphone', 20)->nullable();
-            $table->json('emergency_contact')->nullable();
-            $table->string('nick_name', 30)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

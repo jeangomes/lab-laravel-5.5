@@ -15,10 +15,11 @@ class UsersTableSeeder extends Seeder {
 
         $user = new User();
         $user->name = 'Jean Gomes';
+        $user->admin = 1;
+        $user->verified = 1;
         $user->email = 'jeangomes.ti@gmail.com';
         //$user->options = ['name'=>'gomes'];
         $user->password = bcrypt(123456);
-        $user->birth_date = '1990-08-11';
         $user->save();
 
         factory(User::class, 15)->create();

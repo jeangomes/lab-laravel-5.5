@@ -33,12 +33,9 @@
                     <td>{{$event->vacancy - count($event->customers)}}</td>
                     <td>?</td>
                     <td>R$ {{number_format($event->price,2,',','')}}</td>
-                    <td>{{
-                     Carbon\Carbon::parse($event->start_date)->format('d/m/Y H:i')
-            }} <br>até<br>
-                        {{
-                 Carbon\Carbon::parse($event->final_date)->format('d/m/Y')
-        }}
+                    <td>{{$event->start_date->format('d/m/Y H:i')}}
+                        <br>até<br>
+                        {{$event->final_date->format('d/m/Y')}}
                     </td>
 
                     <td>

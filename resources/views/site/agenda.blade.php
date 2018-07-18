@@ -53,69 +53,35 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 px-0">
-                <div class="card card-background card-background-product card-no-shadow" style="background-image: url('assets/img/project1.jpg')">
+            @foreach($events as $event)
+                <div class="col-md-6 px-0">
+                    <div class="card card-background card-background-product card-no-shadow"
+                         style="background-image: url('{{asset('storage/'.$event->picture)}}')">
 
-                    <div class="card-body">
-                        <h6 class="category">History</h6>
-                        <h3 class="card-title">
-                            The City Lost &amp; Found
-                        </h3>
+                        <div class="card-body">
+                            <h6 class="category">{{$event->type}}</h6>
+                            <h3 class="card-title">
+                                {{$event->title}}
+                            </h3>
 
-                        <p class="card-description">
-                            Developed on the occasion of an exhibition of the same name, The City Lost &amp; Found: Capturing New York...
-                        </p>
-                        <a href="#pablo" class="btn btn-danger btn-round">
-                            <i class="now-ui-icons ui-1_send"></i> View Book
-                        </a>
+                            <p class="card-description">
+                                {{str_limit($event->description,120)}}
+                            </p>
+                            <a href="{{ route('detalhe',$event->id) }}" class="btn btn-neutral btn-round">
+                                <i class="now-ui-icons ui-1_send"></i> Veja mais
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
 
             <div class="col-md-6 px-0">
                 <div class="card card-raised card-background card-background-product card-no-shadow" style="background-image: url('{{asset('now-ui-kit-v1.1.0/assets/img/project18.jpg')}}')">
-                    <div class="card-body">
-                        <h6 class="category">Satire</h6>
-                        <h3 class="card-title">A Confederacy of Dunces</h3>
-                        <p class="card-description">
-                            Satires, in the most basic definition, are works making fun of some sort of person or institution...
-                        </p>
-                        <a href="#pablo" class="btn btn-neutral btn-round">
-                            <i class="now-ui-icons ui-1_send"></i> View more
-                        </a>
-                    </div>
+
                 </div>
             </div>
 
-            <div class="col-md-6 px-0">
-                <div class="card card-background card-background-product card-no-shadow" style="background-image: url('assets/img/project20.jpg')">
-                    <div class="card-body">
-                        <h6 class="category">Fiction</h6>
-                        <h3 class="card-title">The Sun Also Rises</h3>
-                        <p class="card-description">
-                            The most commonly read works are works of fiction. Fiction books are ones that have been made up...
-                        </p>
-                        <a href="#pablo" class="btn btn-neutral btn-round">
-                            <i class="now-ui-icons ui-1_send"></i> Read Now
-                        </a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-6 px-0">
-                <div class="card card-background card-background-product card-no-shadow" style="background-image: url('assets/img/project19.jpg')">
-                    <div class="card-body">
-                        <h6 class="category">Basic Civitas</h6>
-                        <h3 class="card-title">The Right Mistake</h3>
-                        <p class="card-description">
-                            Living in South Central L.A., Socrates Fortlow is a sixty-year-old ex-convict, still strong enough to kill men with...
-                        </p>
-                        <a href="#pablo" class="btn btn-danger btn-round">
-                            <i class="now-ui-icons ui-1_send"></i> Read Now
-                        </a>
-                    </div>
-                </div>
-            </div>
 
         </div>
 

@@ -37,7 +37,8 @@ class EventController extends AdmController
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        $path = $request->file('photo')
+            ->store('events/images');
         $event = new Event();
         $event->title = $request->title;
         $event->vacancy = $request->vacancy;
@@ -46,6 +47,7 @@ class EventController extends AdmController
         $event->start_date = $request->start_date;
         $event->final_date = $request->final_date;
         $event->description = $request->description;
+        $event->picture = $path;
         $event->payment_deadline = $request->payment_deadline;
         $event->meeting_point = $request->meeting_point;
         $event->meeting_point_map = $request->meeting_point;

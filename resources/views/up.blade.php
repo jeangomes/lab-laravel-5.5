@@ -3,3 +3,4 @@
     <input type="file" name="photo">
     <input type="submit">
 </form>
+<a href="">Opa</a>

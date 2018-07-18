@@ -15,7 +15,7 @@
             <td>{{ $customer['name'] }}</td>            
             <td>
                 @foreach($customer['dicas'] as $coisa)
-                <label class="badge">{{ $coisa->gift_tip }}</label>
+                <label class="badge">{{ $coisa->gkift_tip }}</label>
                 @endforeach 
             </td>
         </tr>

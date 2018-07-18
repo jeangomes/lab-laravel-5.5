@@ -21,9 +21,13 @@ class CreateEventsTable extends Migration {
             $table->foreign('user_id')->references('id')->on('users');
             $table->decimal('price', 10, 2);
             $table->date('payment_deadline')->nullable();
+            $table->time('boarding_time')->nullable();
             $table->dateTime('start_date');
             $table->dateTime('final_date');
-            //boarding time, situation, level, type
+            $table->string('picture', 80);
+            $table->boolean('active')->default(0);
+            $table->enum('type',['Travessia','Bate e Volta','Pernoite Nutella'])->nullable();
+            $table->string('level', 200)->nullable();
             $table->text('description')->nullable();
             $table->string('meeting_point', 200);
             $table->text('meeting_point_map')->nullable();

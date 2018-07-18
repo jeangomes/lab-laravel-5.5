@@ -101,8 +101,8 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('subscribe',9)}}">Participar</a></li>
-                        <li><a href="{{route('amigo-oculto.index')}}">Lista de participantes</a></li>
+                        <li><a href="{{route('subscribe',6)}}">Participar</a></li>
+                        <li><a href="{{route('inscricao.index')}}">Lista de participantes</a></li>
                     </ul>
                 </li>
                 <li>
@@ -256,13 +256,13 @@
 <script src="{{ asset('paper/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
 
 <!--  Checkbox, Radio & Switch Plugins -->
-<script src="assets/js/bootstrap-checkbox-radio.js"></script>
+<script src="{{ asset('paper/assets/js/bootstrap-checkbox-radio.js') }}"></script>
 
 <!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
+<script src="{{ asset('paper/assets/js/chartist.min.js') }}"></script>
 
 <!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
+<script src="{{ asset('paper/assets/js/bootstrap-notify.js') }}"></script>
 
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
@@ -270,8 +270,8 @@
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="{{ asset('paper/assets/js/paper-dashboard.js') }}"></script>
 
-<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
+<!-- Paper Dashboard DEMO methods, don't include it in your project!
+<script src="assets/js/demo.js"></script> -->
 
 
 </html>

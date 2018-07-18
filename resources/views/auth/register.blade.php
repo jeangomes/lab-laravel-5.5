@@ -72,67 +72,7 @@
                                        placeholder="Confirme a senha"
                                        name="password_confirmation" required>
                             </div>
-                            <hr>
 
-                            <div class="input-group form-group-no-border">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons ui-1_calendar-60"></i>
-                                        </span>
-                                <input id="birth_date" type="text"
-                                       class="form-control"
-                                       ui-mask="99/99/9999"
-                                       ng-model="birth_dt"
-                                       ng-init="birth_dt='{{ old('birth_date','') }}'"
-                                       name="birth_date"
-                                       value="{{ old('birth_date') }}"
-                                       required>
-
-                            </div>
-                            @if ($errors->has('birth_date'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('birth_date') }}</strong>
-                                </span>
-                                <br>
-                            @endif
-
-                            <div class="input-group form-group-no-border">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons"></i>
-                                        </span>
-                                <input id="cellphone"
-                                       type="text"
-                                       ui-mask="(99) 9?9999-9999"
-                                       ng-model="cellphone"
-                                       ng-init="cellphone='{{ old('cellphone','') }}'"
-
-                                       class="form-control" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
-                                       name="cellphone" validate="true"
-                                       value="{{ old('cellphone') }}"
-                                       required>
-                            </div>
-                            @if ($errors->has('cellphone'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('cellphone') }}</strong>
-                                </span>
-                                <br>
-                            @endif
-
-                            <div class="input-group form-group-no-border">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons"></i>
-                                        </span>
-                                <input id="nick_name"
-                                       type="text" placeholder="Como gostaria de ser chamado"
-                                       class="form-control"
-                                       name="nick_name"
-                                       value="{{ old('nick_name') }}">
-                            </div>
-
-                            @if ($errors->has('nick_name'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('nick_name') }}</strong>
-                                </span>
-                        @endif
                         <!-- If you want to add a checkbox to this form, uncomment this code -->
                             <!-- <div class="checkbox">
                               <input id="checkboxSignup" type="checkbox">

@@ -17,7 +17,8 @@ class FileController extends Controller
     	
 
         //var_dump($request);
-		$path = $request->file('photo')->storePubliclyAs('clientes/docs','rel-item-987.pdf','dospace');
+		$path = $request->file('photo')
+            ->store('clientes/docs');
 
         //var_dump($path);
     	//exit();
