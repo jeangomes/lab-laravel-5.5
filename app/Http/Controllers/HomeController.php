@@ -17,10 +17,11 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['welcome', 'index','botSkull']]);
+        $this->middleware('auth', ['except' => ['welcome', 'index', 'botSkull', 'quemSomos']]);
     }
 
-    public function botSkull(){
+    public function botSkull()
+    {
         $response = Telegram::getMe();
 
         $botId = $response->getId();
@@ -31,11 +32,11 @@ class HomeController extends Controller
 
         $update = Telegram::commandsHandler(true);
 
-        dd('oi',$update);
+        dd('oi', $update);
 
-            //$event = new Event();
-            //$events = $event->pluck('title')->toArray();
-            // array_chunk($events, 2)
+        //$event = new Event();
+        //$events = $event->pluck('title')->toArray();
+        // array_chunk($events, 2)
 
     }
 
@@ -57,6 +58,11 @@ class HomeController extends Controller
         $user = Auth::user();
 //        var_dump($user->id);
         return view('home');
+    }
+
+    public function quemSomos(Request $request)
+    {
+        return view('site.quem-somos');
     }
 
 }
