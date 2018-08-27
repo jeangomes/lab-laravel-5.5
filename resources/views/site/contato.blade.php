@@ -51,7 +51,7 @@
                             </div>
                             <div class="description">
                                 <h4 class="info-title">Find us at the office</h4>
-                                <p> Bld Mihail Kogalniceanu, nr. 8,<br>
+                                <p> Na montanha, nr. 8,<br>
                                     7652 Bucharest,<br>
                                     Romania
                                 </p>

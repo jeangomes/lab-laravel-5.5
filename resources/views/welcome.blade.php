@@ -7,10 +7,10 @@
                 <div class="content-center">
                     <h1 class="title">Somos os Caveiras da Montanha.</h1>
                     <div class="text-center">
-                        <a href="#" class="btn btn-default btn-icon btn-round">
+                        <a href="https://www.facebook.com/caveirasdamontanharj/" class="btn btn-default btn-icon btn-round" target="_blank">
                             <i class="fa fa-facebook-square"></i>
                         </a>
-                        <a href="#" class="btn btn-default btn-icon btn-round">
+                        <a href="https://www.instagram.com/caveirasdamontanharj/" class="btn btn-default btn-icon btn-round" target="_blank">
                             <i class="fa fa-instagram"></i>
                         </a>
                         <a href="#" class="btn btn-default btn-icon btn-round">
