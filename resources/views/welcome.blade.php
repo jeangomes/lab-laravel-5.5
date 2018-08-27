@@ -94,7 +94,7 @@
                         <div class="col-md-4">
                             <div class="team-player">
                                 <img src="../assets/img/eva.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                                <h4 class="title">Beltrano Coimbra</h4>
+                                <h4 class="title">Vanessa Coimbra</h4>
                                 <p class="category text-primary">Ousado</p>
                                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
                                     Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.</p>
