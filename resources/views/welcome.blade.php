@@ -7,13 +7,13 @@
                 <div class="content-center">
                     <h1 class="title">Somos os Caveiras da Montanha.</h1>
                     <div class="text-center">
-                        <a href="#pablo" class="btn btn-default btn-icon btn-round">
+                        <a href="#" class="btn btn-default btn-icon btn-round">
                             <i class="fa fa-facebook-square"></i>
                         </a>
-                        <a href="#pablo" class="btn btn-default btn-icon btn-round">
+                        <a href="#" class="btn btn-default btn-icon btn-round">
                             <i class="fa fa-instagram"></i>
                         </a>
-                        <a href="#pablo" class="btn btn-default btn-icon btn-round">
+                        <a href="#" class="btn btn-default btn-icon btn-round">
                             <i class="fa fa-youtube"></i>
                         </a>
                     </div>
@@ -75,9 +75,9 @@
                                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
                                     Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.
                                     </p>
-                                <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
-                                <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-instagram"></i></a>
-                                <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-facebook-square"></i></a>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -87,8 +87,8 @@
                                 <p class="category text-primary">Sincera</p>
                                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
                                     Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.</p>
-                                <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
-                                <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-linkedin"></i></a>
+                                <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -98,9 +98,9 @@
                                 <p class="category text-primary">Ousado</p>
                                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
                                     Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.</p>
-                                <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-google-plus"></i></a>
-                                <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-youtube-play"></i></a>
-                                <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-google-plus"></i></a>
+                                <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-youtube-play"></i></a>
+                                <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                             <textarea class="form-control" name="name" rows="4" cols="80" placeholder="Type a message..."></textarea>
                         </div>
                         <div class="send-button">
-                            <a href="#pablo" class="btn btn-primary btn-round btn-block btn-lg">Send Message</a>
+                            <a href="#" class="btn btn-primary btn-round btn-block btn-lg">Send Message</a>
                         </div>
                     </div>
                 </div>
