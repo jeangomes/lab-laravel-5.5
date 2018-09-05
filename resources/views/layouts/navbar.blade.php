@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
         <div class="dropdown button-dropdown">
-            <a href="#pablo" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
                 <i class="fa fa-skull"></i>
             </a>
             {{--<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -73,13 +73,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Curta nossa página" data-placement="bottom" href="" target="_blank">
+                    <a class="nav-link" rel="tooltip" title="Curta nossa página" data-placement="bottom" href="https://www.facebook.com/caveirasdamontanharj/" target="_blank">
                         <i class="fa fa-facebook-square"></i>
                         <p class="d-lg-none d-xl-none">Facebook</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Siga nosso Instagram" data-placement="bottom" href="" target="_blank">
+                    <a class="nav-link" rel="tooltip" title="Siga nosso Instagram" data-placement="bottom" href="https://www.instagram.com/caveirasdamontanharj/" target="_blank">
                         <i class="fa fa-instagram"></i>
                         <p class="d-lg-none d-xl-none">Instagram</p>
                     </a>
