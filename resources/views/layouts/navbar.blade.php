@@ -43,8 +43,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">
-                        Últimos Eventos
+                    <a class="nav-link" href="{{ route('galeria') }}">
+                        Nossa Vibe
                     </a>
                 </li>
                 <li class="nav-item">

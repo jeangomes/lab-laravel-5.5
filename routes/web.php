@@ -18,7 +18,7 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('/home', 'HomeController@home')->name('home');
 
 Route::get('/quem-somos', 'HomeController@quemSomos')->name('somos');
-Route::get('/galeria', 'HomeController@galeria')->name('galeria');
+Route::get('/galeria', 'InstagramController@index')->name('galeria');
 Route::get('/agenda', 'EventController@index')->name('agenda');
 Route::get('/blog', 'HomeController@blog')->name('blog');
 Route::get('/contato', 'ContatoController@index')->name('contato');
@@ -34,4 +34,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Adm','middleware'=>'admin'], f
     Route::get('/home', 'HomeController@index')->name('dash');
 });
 Route::resource('pedido', 'PurchaseController');
+
+Route::get('auth/callback/{provider}', 'SocialAuthController@callback');
+Route::get('auth/redirect/{provider}', 'SocialAuthController@redirect');
+Route::get('auth/logout', 'SocialAuthController@logout');
 

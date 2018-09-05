@@ -16,7 +16,10 @@
             </thead>
             @foreach($results as $result)
                 <tr class="{{$loop->index % 2 ? 'bg':''}}">
-                    <td>{{$loop->index + 1}}</td>
+                    <td>
+                        {{$loop->index + 1}}
+                        <img class="img-circle" width="50" src="{{ $result->avatar }}">
+                    </td>
                     <td>{{$result->id}} - {{$result->name}}</td>
                     <td>{{$result->email}}</td>
                     <td></td>

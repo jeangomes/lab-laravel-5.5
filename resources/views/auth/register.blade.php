@@ -11,10 +11,10 @@
                         <div class="header text-center" style="height: auto;">
                             <h4 class="title title-up">Cadastro</h4>
                             <div class="social-line">
-                                <a href="#pablo" class="btn btn-neutral btn-google btn-icon btn-round">
+                                <a href="{{ url('auth/redirect/google') }}" class="btn btn-neutral btn-google btn-icon btn-round">
                                     <i class="fa fa-google"></i>
                                 </a>
-                                <a href="#pablo" class="btn btn-neutral btn-facebook btn-icon btn-lg btn-round">
+                                <a href="{{ url('auth/redirect/facebook') }}" class="btn btn-neutral btn-facebook btn-icon btn-lg btn-round">
                                     <i class="fa fa-facebook-square"></i>
                                 </a>
                                 <a href="#pablo" class="btn btn-neutral btn-twitter btn-icon btn-round">
