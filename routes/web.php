@@ -35,6 +35,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Adm','middleware'=>'admin'], f
 });
 Route::resource('pedido', 'PurchaseController');
 
+Route::get('/tracking', 'TrackingController@index')->name('tracking');
+
 Route::get('auth/callback/{provider}', 'SocialAuthController@callback');
 Route::get('auth/redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('auth/logout', 'SocialAuthController@logout');

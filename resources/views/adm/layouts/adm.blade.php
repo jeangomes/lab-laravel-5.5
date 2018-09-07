@@ -80,6 +80,12 @@
                             <p>Pedidos</p>
                         </a>
                     </li>
+                    <li class="{{Route::currentRouteName()==='tracking'?'active':''}}">
+                        <a href="{{ route('tracking') }}">
+                            <i class="ti-eye"></i>
+                            <p>Tracking</p>
+                        </a>
+                    </li>
                     <li class="disabled">
                         <a href="{{ route('membros.index') }}">
                             <i class="ti-id-badge"></i>
