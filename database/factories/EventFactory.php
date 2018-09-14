@@ -4,26 +4,25 @@ use Faker\Generator as Faker;
 use Illuminate\Support\Carbon;
 
 $factory->define(App\Event::class, function (Faker $faker) {
-    $startDate = Carbon::createFromTimeStamp($faker->dateTimeBetween('-3 year', '+1 year')->getTimestamp());
+    $startDate = Carbon::createFromTimeStamp($faker->dateTimeBetween('-2 year', '+1 year')->getTimestamp());
     $endDate = Carbon::createFromFormat('Y-m-d H:i:s', $startDate)->addDays(3);
     $payment_deadline = Carbon::createFromFormat('Y-m-d H:i:s', $startDate)->subDay(7);
-
+    $eventos = [
+        'Serra Fina',
+        'Petropolis x Teresopolis',
+        'Marins x Itaguare',
+        'Juatinga',
+        'Baependi x Aiuruoca',
+        'Pico da Caledonia',
+        'Torres de Bonsucesso',
+        'Complexo do Baú',
+        'Serrinha do Alambari',
+        'Capitolio',
+        'Pedra Chata',
+        'Dois Bicos'
+    ];
     return [
-        'title' => $faker->randomElement([
-            'Serra Fina',
-            'Petropolis x Teresopolis',
-            'Marins x Itaguare',
-            'Juatinga',
-            'Baependi x Aiuruoca',
-            'Pico da Caledonia',
-            'Torres de Bonsucesso',
-            'Complexo do Baú',
-            'Serrinha do Alambari',
-            'Capitolio',
-            'Pedra Chata',
-            'Dois Bicos'
-                ]
-        ),
+        'title' => $faker->randomElement($eventos),
         'vacancy' => $faker->numberBetween(10, 15),
         'price' => $faker->randomFloat(2, 10, 400),
         'start_date' => $startDate,

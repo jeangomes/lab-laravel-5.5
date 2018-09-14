@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+<nav class="navbar navbar-expand-lg bg-default fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
         <div class="dropdown button-dropdown">
             <a href="#" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
@@ -17,7 +17,7 @@
         </div>
         <div class="navbar-translate">
             <a class="navbar-brand" href="{{ url('/') }}" rel="tooltip" data-placement="bottom">
-                Caveiras da Montanha
+                <img width="160" src="{{asset('images/logo-2018.png')}}">
             </a>
             <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-bar bar1"></span>

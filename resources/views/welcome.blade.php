@@ -70,8 +70,8 @@
                         <div class="col-md-4">
                             <div class="team-player">
                                 <img src="../assets/img/avatar.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                                <h4 class="title">Fulano da Silva</h4>
-                                <p class="category text-primary">Espontaneo</p>
+                                <h4 class="title">Fulana da Silva</h4>
+                                <p class="category text-primary">Espontânea</p>
                                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
                                     Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.
                                     </p>
@@ -84,7 +84,7 @@
                             <div class="team-player">
                                 <img src="../assets/img/ryan.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                                 <h4 class="title">Ciclano Alves</h4>
-                                <p class="category text-primary">Sincera</p>
+                                <p class="category text-primary">Bonachão</p>
                                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
                                     Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.</p>
                                 <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
@@ -94,8 +94,8 @@
                         <div class="col-md-4">
                             <div class="team-player">
                                 <img src="../assets/img/eva.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                                <h4 class="title">Vanessa Coimbra</h4>
-                                <p class="category text-primary">Ousado</p>
+                                <h4 class="title">Beltrana Coimbra</h4>
+                                <p class="category text-primary">Determinada</p>
                                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit congue dui nec pulvinar.
                                     Maecenas non semper tortor. Donec ultrices, justo at accumsan scelerisque, metus risus blandit nulla, eu ultricies sem ipsum vitae nulla.</p>
                                 <a href="#" class="btn btn-primary btn-icon btn-round"><i class="fa fa-google-plus"></i></a>
@@ -110,14 +110,14 @@
         <div class="section section-contact-us text-center">
             <div class="container">
                 <h2 class="title">Quer se juntar a nós?</h2>
-                <p class="description">Novas pessoas sempre são bem vindas a fazer parte da familia Caveiras da Montanha.</p>
+                <p class="description">Novas pessoas, sempre são bem vindas a fazer parte da família Caveiras da Montanha.</p>
                 <div class="row">
                     <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
                         <div class="input-group input-lg">
                             <span class="input-group-addon">
                                 <i class="now-ui-icons users_circle-08"></i>
                             </span>
-                            <input type="text" class="form-control" placeholder="First Name...">
+                            <input type="text" class="form-control" placeholder="Nome">
                         </div>
                         <div class="input-group input-lg">
                             <span class="input-group-addon">
@@ -126,10 +126,10 @@
                             <input type="text" class="form-control" placeholder="Email...">
                         </div>
                         <div class="textarea-container">
-                            <textarea class="form-control" name="name" rows="4" cols="80" placeholder="Type a message..."></textarea>
+                            <textarea class="form-control" name="name" rows="4" cols="80" placeholder="Escreva uma mensagem..."></textarea>
                         </div>
                         <div class="send-button">
-                            <a href="#" class="btn btn-primary btn-round btn-block btn-lg">Send Message</a>
+                            <a href="#" class="btn btn-primary btn-round btn-block btn-lg">Enviar</a>
                         </div>
                     </div>
                 </div>
