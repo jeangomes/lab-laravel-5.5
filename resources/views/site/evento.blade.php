@@ -25,7 +25,7 @@
     <div class="section product-page">
         <div class="container">
             <div class="row">
-                <div class="col-md-5">
+               {{-- <div class="col-md-5" hidden>
 
                     <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000">
                         <ol class="carousel-indicators">
@@ -65,7 +65,7 @@
                         <small>Kanye West</small>
                     </p>
 
-                </div>
+                </div>--}}
                 <div class="col-md-6 ml-auto mr-auto">
                     <h2 class="title"> {{$event->title}} </h2>
                     <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
@@ -123,12 +123,12 @@
                     </div>
 
                     <div class="row justify-content-end">
-                        <button class="btn btn-primary mr-3">Quero participar &nbsp;<i class="now-ui-icons shopping_cart-simple"></i></button>
+                        <a href="{{ route('subscribe',$event->id) }}" class="btn btn-primary mr-3">Quero participar &nbsp;<i class="now-ui-icons ui-1_calendar-60"></i></a>
                     </div>
                 </div>
             </div>
 
-            <div class="section">
+            {{--<div class="section hide">
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto text-center mr-5">
                         <h2 class="title">How to wear it</h2>
@@ -161,7 +161,7 @@
                 </div>
             </div>
             <br>
-            <div class="features-4">
+            <div class="features-4 hide">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 ml-auto mr-auto text-center">
@@ -219,7 +219,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div>--}}
 
         </div>
     </div>

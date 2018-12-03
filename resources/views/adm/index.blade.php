@@ -18,13 +18,13 @@
                                     <div class="col-xs-9">
                                         <div class="numbers">
                                             <p>{{$event->title}}<br>
-                                                {{$event->start_date->diffForHumans()}}</p>
+                                                <small>{{$event->start_date->diffForHumans(null, null, false, 3)}}</small></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer">
                                     <p>Data: {{$event->start_date->format('d/m/Y')}}</p>
-                                    <p>Vagas: {{$event->vacancy}} | Ocupadas: {{$event->customers->count()}} |
+                                    <p>Vagas: {{$event->vacancy}} | Ocupadas: {{$event->participants->count()}} |
                                         Restantes: {{$event->has_vacancy}}</p>
                                     <hr/>
                                     <div class="stats">

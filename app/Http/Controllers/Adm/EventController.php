@@ -15,7 +15,7 @@ class EventController extends AdmController
      */
     public function index()
     {
-        $results = Event::with('customers')->orderBy('start_date')->paginate(10);
+        $results = Event::with('participants')->orderBy('start_date')->paginate(10);
         return view('adm.events.index')->with(compact('results'));
     }
 
@@ -74,7 +74,7 @@ class EventController extends AdmController
     public function show(Event $evento)
     {
 
-        $evento = Event::with('customers')->find($evento->id);
+        $evento = Event::with('participants')->find($evento->id);
         return view('adm.events.show')->with(compact('evento'));
     }
 

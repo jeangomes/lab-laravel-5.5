@@ -99,18 +99,6 @@
                         </a>
                     </li>
                 @endif
-                <li class="nav-item dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="ti-user"></i>
-                        <p class="notification"></p>
-                        <p>Amigo Oculto</p>
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{route('subscribe',6)}}">Participar</a></li>
-                        <li><a href="{{route('inscricao.index')}}">Lista de participantes</a></li>
-                    </ul>
-                </li>
                 <li>
                     <a href="{{ route('pedido.index') }}"><p>Histórico de Eventos</p></a>
                 </li>

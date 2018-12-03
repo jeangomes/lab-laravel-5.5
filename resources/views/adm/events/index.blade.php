@@ -29,8 +29,8 @@
                     <td>{{$event->id}} - {{$event->title}}</td>
                     <td>{{$event->vacancy}}</td>
                     <td>?</td>
-                    <td>{{count($event->customers)}}</td>
-                    <td>{{$event->vacancy - count($event->customers)}}</td>
+                    <td>{{count($event->participants)}}</td>
+                    <td>{{$event->vacancy - count($event->participants)}}</td>
                     <td>?</td>
                     <td>R$ {{number_format($event->price,2,',','')}}</td>
                     <td>{{$event->start_date->format('d/m/Y H:i')}}

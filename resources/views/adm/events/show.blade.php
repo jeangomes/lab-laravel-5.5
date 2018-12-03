@@ -27,15 +27,15 @@
                 Capacidade
             </li>
             <li class="list-group-item">
-                <span class="badge">{{count($evento->customers)}}</span>
+                <span class="badge">{{count($evento->participants)}}</span>
                 Vagas reservadas
             </li>
             <li class="list-group-item">
-                <span class="badge">{{count($evento->customers)}}</span>
+                <span class="badge">{{count($evento->participants)}}</span>
                 Vagas pagas
             </li>
             <li class="list-group-item">
-                <span class="badge">{{$evento->vacancy - count($evento->customers)}}</span>
+                <span class="badge">{{$evento->vacancy - count($evento->participants)}}</span>
                 Vagas livres
             </li>
         </ul>
@@ -52,7 +52,7 @@
                 <th>Documento</th>
             </tr>
             </thead>
-            @foreach($evento->customers as $customer)
+            @foreach($evento->participants as $customer)
                 <tr>
                     <td>{{$customer->name}}</td>
                     <td>{{$customer->pivot->subscribe_date->format('d/m/Y H:i')}}</td>

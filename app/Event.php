@@ -7,6 +7,7 @@ use DateTime;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Event extends Model implements \MaddHatter\LaravelFullcalendar\Event
 {
@@ -23,17 +24,23 @@ class Event extends Model implements \MaddHatter\LaravelFullcalendar\Event
     //protected $with = ['customers'];
 
     //
-    public function customers()
+    public function participants()
     {
-        return $this->belongsToMany('App\User', 'event_user')
-            ->withPivot(['id as participation_id', 'subscribe_date'])
+        return $this->belongsToMany('App\User', 'event_user', 'event_id', 'user_id')
+            ->withPivot(['subscribe_date'])
             ->select(array('users.id', 'name'))
             ->orderBy('subscribe_date')->using('App\EventUser');
     }
 
     public function getHasVacancyAttribute()
     {
-        return $this->vacancy - $this->customers->count();
+        return $this->vacancy - $this->participants->count();
+    }
+
+    public function getIsOverAttribute()
+    {
+        $now = Carbon::now();
+        return $now->greaterThan($this->start_date);
     }
 
     public function getEventOptions()
@@ -44,7 +51,8 @@ class Event extends Model implements \MaddHatter\LaravelFullcalendar\Event
         ];
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 

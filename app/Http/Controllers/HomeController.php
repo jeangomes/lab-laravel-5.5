@@ -29,7 +29,7 @@ class HomeController extends Controller
         $firstName = $response->getFirstName();
         $username = $response->getUsername();
 
-        //dd($botId,$username,$firstName);
+        dd($botId,$username,$firstName);
 
         $update = Telegram::commandsHandler(true);
 
